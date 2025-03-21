@@ -8,9 +8,9 @@ The website provides an overview of the Sketchtopia dataset, our foundational AI
 If you find Sketchtopia useful in your research, please cite our CVPR paper:
 
 ```
-@inproceedings{authors_sketchtopia_2025,
+@inproceedings{sketchtopia_2025,
   title={Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback},
-  author={Author 1, Author 2, Author 3, ... and Author N},  <!-- Replace with actual authors -->
+  author={Mohd Hozaifa Khan, Ravi Kiran S.}
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2025}
 }
