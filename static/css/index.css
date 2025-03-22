@@ -1,195 +1,129 @@
+/* static/css/index.css */
+
+/* --- Font Imports --- */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* --- General Styles --- */
 body {
-  font-family: 'Noto Sans', sans-serif;
-  line-height: 1.6; /* Improved body text line height */
-  color: #333; /* Slightly darker body text color for better contrast */
+    font-family: 'Roboto', sans-serif; /* Body font */
+    line-height: 1.7;  /* Slightly increased for better readability */
+    color: #444;      /* Slightly darker gray for better contrast */
+    background-color: #f8f9fa; /* Very light gray background */
 }
 
-/* Footer Styles */
-.footer {
-  padding: 3rem 1.5rem 3rem; /* Adjusted footer padding */
-  background-color: #f5f5f5; /* Lighter footer background */
-}
-
-.footer .icon-link {
-    font-size: 25px;
-    color: #555; /* Muted icon color in footer */
-    opacity: 0.8; /* Slightly less prominent footer icons */
-}
-
-.footer .icon-link:hover {
-    opacity: 1;
-}
-
-.footer .section.is-small {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
-.footer .author-card {
-    text-align: center;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 10px;
-    background-color: #fff; /* White background for author cards */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* More pronounced box shadow for author cards */
-}
-
-.footer .author-card .author-headshot {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 0.7rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid #f0f0f0; /* Lighter border for headshots */
-}
-
-.footer .author-card h4.title {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-    text-align: center;
-}
-
-.footer .author-card .affiliation {
-    color: #777; /* Muted affiliation text color */
-    text-align: center;
-    font-size: 0.9rem; /* Smaller affiliation font size */
-}
-
-.footer .author-links {
-    text-align: center;
-    margin-top: 0.5rem;
-}
-
-.footer .author-links .icon-link {
-    font-size: 1.3rem; /* Slightly smaller author link icons */
-    margin: 0 0.4rem; /* Adjusted spacing for author link icons */
-    color: #777; /* Muted author link icon color */
-}
-.footer .author-links .icon-link:hover {
-    color: #555; /* Darker on hover */
-}
-
-
-.link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.dnerf {
-  font-variant: small-caps;
-}
-
-/* Hero Section Styling */
 .hero {
-    background-color: #f9f9f9; /* Very light gray hero background */
+    background-color: #e9ecef; /* Light gray hero background */
+    padding: 2rem 0; /* Less vertical padding */
+    /* Optional: subtle background pattern */
+    /* background-image: url('./static/images/subtle_paper.png');  */
+    background-size: cover;
 }
 
-.hero .hero-body {
-  padding-top: 1.5rem; /* Adjusted hero padding */
-  padding-bottom: 1.5rem;
+.publication-title {
+    font-family: 'Permanent Marker', cursive; /* Heading font */
+    font-size: 3rem; /* Increased title size */
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    color: #343a40; /* Darker title color */
 }
 
-.hero .title.publication-title {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 2.5rem; /* Slightly smaller title size */
-    color: #222; /* Darker title color */
-    letter-spacing: -0.02em; /* Slightly tighter letter spacing for title */
-}
-
-.hero .subtitle.has-text-centered {
-    font-size: 1.1rem; /* Slightly smaller tagline size */
-    font-weight: 500;
-    color: #555; /* Muted tagline color */
-    line-height: 1.7; /* Improved tagline line height */
-    max-width: 800px; /* Max width for tagline for better readability on large screens */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.publication-links {
-    margin-top: 1.5rem; /* Increased margin above publication links */
-}
-
-/* Key Contributions Section Styling */
-.key-contributions h2 {
-    font-size: 1.4rem; /* Slightly smaller key contribution headings */
-    margin-bottom: 0.6rem;
-    display: flex;
-    align-items: center;
-    color: #444; /* Darker key contribution heading color */
-}
-
-.key-contributions h2 img, .key-contributions h2 svg {
-    margin-right: 0.5em;
-    height: 1.6em; /* Slightly smaller key contribution icons */
-    vertical-align: middle;
-    opacity: 0.9; /* Slightly less prominent icons */
-}
-
-.key-contributions p {
-    line-height: 1.7; /* Improved line height for key contribution descriptions */
-    color: #555; /* Muted key contribution description color */
-}
-
-.key-contributions .columns:nth-child(2) {
-    margin-top: 1.5rem; /* Adjusted spacing above architecture diagram */
-}
-
-/* Dataset Statistics Section Styling */
-.dataset-stats {
-    margin-top: 0.5rem;
+.publication-authors {
+    font-size: 1.25rem; /* Increased author font size */
     margin-bottom: 1.5rem;
-    background-color: #fff; /* White background for dataset stats */
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Subtle box shadow for dataset stats section */
+    color: #6c757d; /* Muted author text color */
 }
 
-.dataset-stats .column {
-    padding: 1rem 0.5rem; /* Adjusted padding in dataset stats columns */
+.publication-authors a {
+    color: #00d1b2; /* Teal for links */
+    text-decoration: none;
 }
 
-.dataset-stats p {
-    margin-top: 0.4rem;
-    font-size: 0.95rem; /* Slightly smaller dataset stats description font */
-    line-height: 1.5;
-    color: #666; /* Muted dataset stats description color */
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.publication-links .button {
+    margin: 0.5rem; /* Spacing around buttons */
+}
+
+.content.has-text-justified {
+    text-align: justify; /* Justify abstract text */
+}
+
+/* --- Key Contributions --- */
+.key-contributions {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.key-contributions .column {
+    padding: 1.5rem; /* More padding within contribution columns */
+    border: 1px solid #dee2e6; /* Subtle border */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle box shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.key-contributions .column:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+}
+
+/* Highlight first column */
+.key-contributions .column:nth-child(1) {
+    border-left: 5px solid #00d1b2; /* Teal border for the first column */
+}
+
+.key-contributions .column h2 {
+    font-family: 'Permanent Marker', cursive; /* Heading font */
+    font-size: 1.75rem; /* Larger heading for key contributions */
+    margin-bottom: 1rem;
+    color: #00d1b2; /* Use primary color for headings */
+}
+
+.key-contributions .column h2 .icon {
+    margin-right: 0.5em;
+    color: #00d1b2; /* Match icon color to heading */
+}
+
+/* --- Dataset Stats --- */
+.dataset-stats {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 3rem;
 }
 
 .dataset-stats h2 {
-    font-size: 1.8rem; /* Slightly smaller dataset stats number size */
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 0.4rem;
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333; /* Darker dataset stats number color */
+    margin-bottom: 0.5rem;
+    color: #343a40;
 }
 
-.dataset-stats h2 img, .dataset-stats h2 svg {
-    margin-right: 0.4em;
-    height: 2.2em; /* Slightly smaller dataset stats icons */
-    vertical-align: middle;
-    opacity: 0.8; /* Slightly less prominent icons */
+.dataset-stats p {
+    font-size: 1.1rem;
+    color: #6c757d;
 }
 
-/* Section Titles Styling */
-.section.is-light.is-small .title.is-3 {
-    font-size: 1.8rem; /* Slightly smaller section title size */
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 1.5rem; /* Added margin below section titles */
-}
-
+/* --- Section Titles --- */
 .section .title.is-3 {
-     margin-bottom: 1.5rem; /* Added margin below section titles */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.25rem; /* Larger section titles */
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 2rem; /* Added margin below section titles */
+    display: inline-block; /*For Skecthy effect*/
+    transform: rotate(-1deg);
 }
-
-
-/* Section Body Content Styling */
+.section .title.is-4 {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 600;
+}
+/* --- Section Body Content --- */
 .section.is-light.is-small .hero-body {
     padding-top: 1.5rem; /* Adjusted section padding */
     padding-bottom: 1.5rem;
@@ -197,90 +131,121 @@ body {
 
 .section.is-light.is-small .content.has-text-justified p {
     margin-bottom: 0.8rem; /* Adjusted margin below paragraphs in light small sections */
-    line-height: 1.6;
-}
-
-.section.is-light.is-small .has-text-centered img {
-    margin-top: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-/* Game Example Gallery Styling */
-.game-example-gallery img {
-    border-radius: 5px;
-    border: 1px solid #ddd; /* Lighter border for game example images */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* More subtle box shadow */
-}
-.game-example-gallery .caption {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #666; /* Muted caption color */
-    text-align: center;
-    margin-top: 0.6em;
-    background-color: #f5f5f5; /* Lighter background for labels */
-    padding: 0.25em 0.4em;
-    border-radius: 3px;
-    display: inline-block;
-}
-
-/* Agent Section - Visual Separation */
-.section > .container.is-max-desktop > .columns.is-centered > .column.is-half + .column.is-half {
-    border-left: 1px solid #eee; /* Lighter separator line */
-    padding-left: 2rem;
-}
-
-/* Sketch Carousel Navigation (Basic Arrows) */
-#sketch-carousel .carousel-nav-left, #sketch-carousel .carousel-nav-right {
-    color: #777; /* More muted arrow color */
-    font-size: 1.3em; /* Slightly smaller arrows */
-    opacity: 0.6; /* Even less prominent arrows by default */
-    transition: opacity 0.2s ease-in-out;
-}
-
-#sketch-carousel .carousel-nav-left:hover, #sketch-carousel .carousel-nav-right:hover {
-    opacity: 0.9; /* More prominent arrows on hover */
-}
-
-/* BibTeX Section Styling */
-#BibTeX {
-    background-color: #f0f0f0; /* Very light gray background for BibTeX section */
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    border-top: 1px solid #eee; /* Subtle top border for BibTeX section */
-}
-
-#BibTeX .title {
-    color: #444; /* Darker BibTeX title color */
-}
-
-#BibTeX pre code {
-    background-color: #fff; /* White background for BibTeX code block */
-    border: 1px solid #ddd; /* Border for BibTeX code block */
-    padding: 1rem;
-    border-radius: 5px;
-    font-size: 0.9rem; /* Slightly smaller BibTeX code font */
-    line-height: 1.5;
-    overflow-x: auto; /* Horizontal scroll if code is too wide */
-    white-space: pre; /* Preserve whitespace and line breaks */
-    display: block; /* Ensure block display */
-}
-
-/* Code & Data Section Styling */
-.section.is-light .content h3.title {
-    font-size: 1.5rem; /* Slightly smaller "Get Started" subsection titles */
-    color: #444;
-    margin-top: 1.5rem; /* Add margin above subsection titles */
-}
-
-.section.is-light .content p {
-    color: #555; /* Muted "Get Started" description color */
     line-height: 1.7;
-    max-width: 700px; /* Max width for "Get Started" descriptions */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
 }
 
-.section.is-light .content .publication-links {
-    margin-top: 1rem; /* Adjusted spacing for "Get Started" buttons */
+/* --- Image Carousel --- */
+.hero-body .carousel {
+    position: relative; /* Ensure proper positioning context */
+    overflow: hidden;
+    margin-bottom: 2rem;
+    max-height: 500px; /* Set a maximum height, adjust as needed */
+}
+
+/* Style for individual carousel items and images */
+.carousel-item.item-sketch {
+    display: flex; /* Make it a flex container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.carousel-item.item-sketch img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* Prevent image distortion */
+}
+
+
+/* --- Author Cards --- */
+.author-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.author-headshot {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular headshot */
+    margin-bottom: 1rem;
+    border: 3px solid #00d1b2; /* Optional: Border around headshot */
+}
+
+.author-card h4.title {
+     /*Use normal font here*/
+    font-family: 'Roboto', sans-serif;
+    font-weight:500;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.author-card .affiliation {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.author-links .icon-link {
+    margin: 0 0.5rem;
+    font-size: 1.25rem;
+     color: #555;
+    opacity: 0.8;
+}
+
+/*--- Sketchy Divider ---*/
+.divider {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #f8f9fa;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.footer .icon-link {
+    font-size: 1.3rem; /* Slightly smaller author link icons */
+    margin: 0 0.4rem; /* Adjusted spacing for author link icons */
+    color: #555; /* Muted author link icon color */
+}
+.footer .icon-link:hover {
+    color: #007bff;  /* Different hover color */
+    text-decoration: none;
+}
+
+/* --- BibTeX --- */
+#BibTeX pre {
+    background-color: #e9ecef; /* Light gray background for BibTeX */
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+/* --- Placeholder for Game Example Gallery --- */
+/* You'll need to add specific styles for your gallery layout here,
+   depending on how you choose to implement it (grid, flexbox, etc.) */
+.game-example-gallery {
+  /* Add styles for your gallery layout */
+}
+
+/* --- Responsiveness (Example) --- */
+@media screen and (max-width: 768px) {
+    .publication-title {
+        font-size: 2.5rem; /* Smaller title on mobile */
+    }
+    .key-contributions .column {
+        padding: 1rem; /* Less padding on mobile */
+    }
 }
