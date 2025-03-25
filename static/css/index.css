@@ -4,20 +4,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+/* --- CSS Variables (Custom Properties) --- */
+:root {
+  --primary-color: #546e7a; /* Muted blue-gray (graphite-like) */
+  --secondary-color: #f5f5f5; /* Light, warm gray (paper-like) */
+  --text-color: #212121; /* Very dark gray (almost black) */
+  --light-background: #ffffff; /* Pure white */
+  --dark-background: #f8f9fa; /* Very light, cool gray */
+  --accent-color: #e65100; /* Burnt orange (example accent) */
+  /* --accent-color: #c62828;  Deep red (alternative accent) */
+  /* --accent-color: #00897b;  Dark teal (alternative accent) */
+}
+
 /* --- General Styles --- */
 body {
     font-family: 'Roboto', sans-serif; /* Body font */
     line-height: 1.7;  /* Slightly increased for better readability */
-    color: #444;      /* Slightly darker gray for better contrast */
-    background-color: #f8f9fa; /* Very light gray background */
+    color: var(--text-color);      /* Slightly darker gray for better contrast */
+    background-color: var(--light-background); /* Very light gray background */
+    /* Optional: subtle background pattern */
+    /* background-image: url('../images/subtle_paper.png'); */
+    background-size: cover;
 }
 
 .hero {
-    background-color: #e9ecef; /* Light gray hero background */
+    background-color: var(--light-background); /* Light gray hero background */
     padding: 2rem 0; /* Less vertical padding */
-    /* Optional: subtle background pattern */
-    /* background-image: url('./static/images/subtle_paper.png');  */
-    background-size: cover;
 }
 
 .publication-title {
@@ -26,17 +38,17 @@ body {
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 1rem;
-    color: #343a40; /* Darker title color */
+    color: var(--text-color); /* Darker title color */
 }
 
 .publication-authors {
     font-size: 1.25rem; /* Increased author font size */
     margin-bottom: 1.5rem;
-    color: #6c757d; /* Muted author text color */
+    color: var(--secondary-color); /* Muted author text color */
 }
 
 .publication-authors a {
-    color: #00d1b2; /* Teal for links */
+    color: var(--accent-color); /* Teal for links */
     text-decoration: none;
 }
 
@@ -51,78 +63,56 @@ body {
 .content.has-text-justified {
     text-align: justify; /* Justify abstract text */
 }
-
 /* --- Key Contributions --- */
+
 .key-contributions {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-
 .key-contributions .column {
-    padding: 1.5rem; /* More padding within contribution columns */
-    border: 1px solid #dee2e6; /* Subtle border */
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle box shadow */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .key-contributions .column:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-/* Highlight first column */
-.key-contributions .column:nth-child(1) {
-    border-left: 5px solid #00d1b2; /* Teal border for the first column */
+.key-contributions .column:nth-child(1){
+    border-left: 5px solid var(--accent-color);
 }
 
 .key-contributions .column h2 {
-    font-family: 'Permanent Marker', cursive; /* Heading font */
-    font-size: 1.75rem; /* Larger heading for key contributions */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.75rem;
     margin-bottom: 1rem;
-    color: #00d1b2; /* Use primary color for headings */
+    color: var(--accent-color);
 }
-
 .key-contributions .column h2 .icon {
     margin-right: 0.5em;
-    color: #00d1b2; /* Match icon color to heading */
-}
-
-/* --- Dataset Stats --- */
-.dataset-stats {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-
-.dataset-stats h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #343a40;
-}
-
-.dataset-stats p {
-    font-size: 1.1rem;
-    color: #6c757d;
+    color: var(--accent-color);
 }
 
 /* --- Section Titles --- */
+/* Removed the slight rotation */
 .section .title.is-3 {
     font-family: 'Permanent Marker', cursive;
     font-size: 2.25rem; /* Larger section titles */
     font-weight: 600;
-    color: #343a40;
+    color: var(--text-color);
     margin-bottom: 2rem; /* Added margin below section titles */
-    display: inline-block; /*For Skecthy effect*/
-    transform: rotate(-1deg);
+    /*display: inline-block;  Needed for the transform to work */
+    /* transform: rotate(-1deg); REMOVED */
 }
+/* ---Change font for agent headings*/
 .section .title.is-4 {
     font-family: 'Permanent Marker', cursive;
     font-weight: 600;
 }
+
 /* --- Section Body Content --- */
 .section.is-light.is-small .hero-body {
     padding-top: 1.5rem; /* Adjusted section padding */
@@ -134,19 +124,122 @@ body {
     line-height: 1.7;
 }
 
+/* --- Alternating Backgrounds for Sections --- */
+section {
+  background-color: var(--light-background); /* Default background */
+}
+
+/* Darker background for specific sections */
+section#abstract,
+section#metrics,
+section#resources {
+  background-color: var(--dark-background);
+}
+
+
+/* --- Dataset Stats --- */
+.dataset-stats {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+/*Two row layout*/
+.dataset-stats .columns.is-centered {
+   /* Already has justify-content: center; */
+}
+.dataset-stats .column {
+     width: 30%; /* Full width on smaller screens */
+     /* Other styles for columns */
+}
+/*Adjust for smaller devices*/
+ @media screen and (max-width: 768px) {
+  .dataset-stats .column {
+     width: 100%;
+    }
+}
+
+/* Style for card-like appearance */
+.stat-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-bottom: 1rem; /* Add some bottom margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .stat-value{
+     display: flex;
+     align-items: center;
+}
+.stat-card .stat-value h2{
+     margin-bottom: 0; /* Remove the bottom margin from the h2 inside stat-value */
+
+}
+
+.stat-card .icon {
+    /* Style the icon within the stat card */
+    font-size: 1.5rem; /* Adjust icon size as needed */
+    margin-right: 0.5rem; /* Spacing between icon and number */
+    color: var(--accent-color); /* Example: Use accent color */
+}
+.stat-card .stat-value {
+    font-size: 2.5rem; /* Larger font size for the number */
+    font-weight: bold;
+    color: var(--primary-color); /* Use primary color */
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-label {
+    font-size: 1rem;
+    color: #6c757d; /* Muted text color */
+}
+
+/* --- Agent section specific styles --- */
+#agents .column.is-half {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+#agents .column.is-half > * {
+    margin-bottom: 1.5rem; /* Add spacing between elements */
+}
+#agents .column.is-half:last-child{
+    margin-bottom: 0;
+}
+
+#agents .column.is-half ul {
+    list-style: disc; /* Use standard bullets */
+    margin-left: 1.5em; /* Indent the list */
+    padding-left: 0;
+}
+
+#agents .column.is-half p{
+    text-align: justify;
+}
 /* --- Image Carousel --- */
 .hero-body .carousel {
     position: relative; /* Ensure proper positioning context */
     overflow: hidden;
     margin-bottom: 2rem;
-    max-height: 500px; /* Set a maximum height, adjust as needed */
+     /* Set a maximum height, adjust as needed */
 }
 
 /* Style for individual carousel items and images */
 .carousel-item.item-sketch {
-    display: flex; /* Make it a flex container */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex; /*Make it a flex container*/
+    justify-content: center; /*Center horizontally*/
+    align-items: center; /*Center vertically*/
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -159,7 +252,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     object-fit: contain; /* Prevent image distortion */
 }
-
 
 /* --- Author Cards --- */
 .author-card {
@@ -176,15 +268,11 @@ body {
     height: 120px;
     border-radius: 50%; /* Circular headshot */
     margin-bottom: 1rem;
-    border: 3px solid #00d1b2; /* Optional: Border around headshot */
+    border: 3px solid var(--accent-color); /* Optional: Border around headshot */
 }
-
-.author-card h4.title {
-     /*Use normal font here*/
-    font-family: 'Roboto', sans-serif;
+.author-card .title.is-4{
+    font-family: 'Roboto', sans-serif; /*Use normal font here*/
     font-weight:500;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
 }
 
 .author-card .affiliation {
@@ -194,32 +282,30 @@ body {
 
 .author-links .icon-link {
     margin: 0 0.5rem;
-    font-size: 1.25rem;
-     color: #555;
+    font-size: 1.3rem; /* Slightly smaller author link icons */
+    color: #555; /* Muted author link icon color */
     opacity: 0.8;
 }
-
 /*--- Sketchy Divider ---*/
+/* Example SVG (place this in your HTML where you want a divider)-->
+        <svg class="divider" width="100%" height="5" viewBox="0 0 100 2" preserveAspectRatio="none">
+            <path d="M0 1 C 20 1 30 0 40 1 C 50 2 60 0 70 1 C 80 2 90 0 100 1" stroke="#007bff" stroke-width="1" fill="none" stroke-linecap="round" stroke-dasharray="2 2"/>
+        </svg>
+*/
 .divider {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+.footer .icon-link:hover {
+    color: var(--primary-color);  /* Different hover color */
+    text-decoration: none;
+}
 
 /* --- Footer --- */
 .footer {
-    background-color: #f8f9fa;
+    background-color: var(--dark-background);
     padding: 2rem 1.5rem;
     text-align: center;
-}
-
-.footer .icon-link {
-    font-size: 1.3rem; /* Slightly smaller author link icons */
-    margin: 0 0.4rem; /* Adjusted spacing for author link icons */
-    color: #555; /* Muted author link icon color */
-}
-.footer .icon-link:hover {
-    color: #007bff;  /* Different hover color */
-    text-decoration: none;
 }
 
 /* --- BibTeX --- */
@@ -239,6 +325,7 @@ body {
 .game-example-gallery {
   /* Add styles for your gallery layout */
 }
+
 
 /* --- Responsiveness (Example) --- */
 @media screen and (max-width: 768px) {

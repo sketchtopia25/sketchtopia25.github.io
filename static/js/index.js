@@ -9,24 +9,35 @@ $(document).ready(function() {
 
     });
 
-    var carousels = bulmaCarousel.attach('.carousel', {
-			slidesToScroll: 1,
-			slidesToShow: 3,
-			loop: true,
-			infinite: true,
-			autoplay: true, // Enable autoplay for image slideshow
-			autoplaySpeed: 3000, // Adjust autoplay speed as needed (milliseconds)
+    // Bulma Carousel Initialization
+    // - Initialize carousels with specific IDs and options
+    // - Remove autoplay from the main carousel
+    var mainCarousels = bulmaCarousel.attach('#image-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,  // Show one image at a time
+        loop: true,
+        infinite: true,
+        autoplay: false, // Remove autoplay, it's a static image.
+        // autoplaySpeed: 3000,  // No longer needed
     });
-    
 
-    // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
-    	carousels[i].on('before:show', state => {
-    		console.log(state);
-    	});
-    }
+    var drawbotCarousels = bulmaCarousel.attach('#drawbot-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+    });
 
-    bulmaSlider.attach();
+    var guessbotCarousels = bulmaCarousel.attach('#guessbot-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+    });
 
+
+     // Bulma Slider (if you use it, keep this)
+     bulmaSlider.attach();
 });
