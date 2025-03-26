@@ -556,13 +556,25 @@ section.hero {
     transform: translateY(-4px);
     box-shadow: var(--card-shadow-hover);
 }
+.headshot-wrapper {
+    width: 85px; /* Moved from img */
+    height: 85px; /* Moved from img */
+    border-radius: 50%; /* Moved from img */
+    border: 3px solid var(--accent-color); /* Moved from img */
+    margin: 0 auto 0.8rem auto; /* Moved from img */
+    overflow: hidden; /* Crucial: clips the image inside */
+    /* Optional: Add background color if image loading is slow */
+    /* background-color: var(--border-color); */
+}
 .author-headshot {
-    width: 100px; /* Slightly smaller */
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto 1rem auto; /* Reduced margin */
-    border: 3px solid var(--accent-color); /* Keep accent border */
-    object-fit: cover;
+    display: block; /* Remove potential space below image */
+    width: 100%; /* Fill the wrapper */
+    height: 100%; /* Fill the wrapper */
+    object-fit: cover; /* Cover the wrapper area */
+    /* Remove properties now on wrapper */
+    border-radius: 0;
+    border: none;
+    margin: 0;
 }
 .author-card .title.is-4{ /* Author Name */
     font-family: var(--heading-font); /* Use Inter */
