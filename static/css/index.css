@@ -1,38 +1,39 @@
 /* static/css/index.css */
 
 /* --- Font Imports --- */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* Imports moved to HTML <head> for better performance/control */
+/* @import url('...'); */
 
 /* --- CSS Variables (Custom Properties) --- */
+/* UPDATED Palette & Fonts */
 :root {
-    --primary-color: #0077b6;   /* Trustworthy blue */
-    --secondary-color: #e0f2fe; /* Very light blue-ish gray */
-    --tertiary-color: #3AAA35;  /* Added Green for differentiation */
-    --text-color: #333333;      /* Dark gray */
-    --text-color-light: #555555; /* Lighter gray for less emphasis */
-    --light-background: #ffffff;  /* Pure white */
-    --dark-background: #f8f9fa;   /* Off-white/Light gray */
-    --accent-color: #ff8c00;      /* Vibrant orange for CTAs and highlights */
-    --heading-font: 'Permanent Marker', cursive;
-    --body-font: 'Roboto', sans-serif;
-    --link-color: #0056b3;     /* Darker blue for accessibility */
-    --border-color: #dee2e6;   /* Light border color */
-    --card-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    --card-shadow-hover: 0 6px 12px rgba(0,0,0,0.1);
+    --primary-color: #006978;   /* Deep Teal */
+    --secondary-color: #E0F2F7; /* Light Teal Tint */
+    --tertiary-color: #8E7C93;  /* Desaturated Mauve (Example for differentiation) */
+    --text-color: #333333;      /* Dark Gray */
+    --text-color-light: #666666; /* Slightly Lighter Gray */
+    --light-background: #FFFFFF;  /* White */
+    --dark-background: #EFF2F5;   /* Cool Light Gray */
+    --accent-color: #D4A017;      /* Muted Gold/Ochre */
+    --heading-font: 'Inter', sans-serif; /* UPDATED Heading Font */
+    --body-font: 'Roboto', sans-serif; /* Body font remains */
+    --link-color: #005670;     /* Darker Teal */
+    --border-color: #E1E5E8;   /* Light Border Color (adjust based on dark-bg) */
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.06); /* UPDATED Softer shadow */
+    --card-shadow-hover: 0 5px 12px rgba(0,0,0,0.1); /* UPDATED Deeper hover */
 }
 
 /* --- General & Global Styles --- */
 body {
     font-family: var(--body-font);
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-background);
 }
 
 /* Smooth transitions for hover effects */
 a, .button, .stat-card, .author-card, .metric-item, .key-contributions .column {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.20s ease-in-out;
 }
 
 a {
@@ -45,118 +46,112 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Section Padding */
+/* Basic Focus Outline for Accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+/* Remove default outline when custom is applied */
+a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
+   outline: none;
+}
+/* More specific focus-visible styling */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+   outline: 2px solid var(--accent-color);
+   outline-offset: 2px;
+}
+
+
+/* Section Padding (UPDATED for Density) */
 section.section {
-    padding: 2rem 1.5rem; /* Default section padding */
+    padding: 4rem 2rem; /* Reduced from 2rem */
 }
 section.is-small {
-    padding: 1.5rem 1.5rem;
+    padding: 2.5rem 1.5rem; /* Reduced from 1.5rem */
 }
 
 /* Alternating Backgrounds for Sections */
-/* section#abstract, */
-section#abstract{
-    padding-top: 1.5rem; /* MODIFIED: Reduced padding */
-    padding-bottom: 1.5rem; /* MODIFIED: Reduced padding */
-    background-color: var(--dark-background);
-}
+section#abstract,
 section#metrics,
-section#resources {
+section#resources,
+section#dataset { /* Combined rules */
   background-color: var(--dark-background);
 }
-section.key-contributions {
-    background-color: var(--light-background); /* Give contributions a background */
-    padding-top: 2.5rem; /* MODIFIED: Reduced padding */
-    padding-bottom: 2.5rem; /* MODIFIED: Reduced padding */
+
+/* Specific Section Padding Adjustments */
+section#abstract {
+    padding-top: 0rem; /* Example reduction */
+    padding-bottom: 0rem;
 }
-section#dataset {
-     background-color: var(--dark-background);
+section.key-contributions {
+    background-color: var(--light-background);
+    padding-top: 2.2rem; /* Example reduction */
+    padding-bottom: 4rem;
 }
 
 /* --- Navbar --- */
 .navbar {
     border-bottom: 1px solid var(--border-color);
 }
-.navbar-item.is-active { /* Style for active navbar link */
+.navbar-item.is-active {
     font-weight: bold;
     color: var(--primary-color);
 }
 
 /* --- Hero Section --- */
-/* .hero {
-    background-color: var(--light-background);
-    padding: 4rem 1.5rem 2rem 1.5rem;
-} */
-
 section.hero {
-    position: relative; /* ADDED: Establish positioning context for the corner logo */
+    position: relative;
     background-color: var(--light-background);
-    padding: 0rem 1.5rem 2rem 1.5rem; /* Keep existing padding */
-    /* NOTE: Corner logo 'top' and 'right' values should relate to this padding */
+    padding: 1rem 1.5rem 1.5rem 1.5rem; /* Reduced top/bottom padding slightly */
 }
 
-/* ADDED: Corner Logo specific styles */
+/* Corner Logo specific styles */
 .hero-corner-logo {
     position: absolute;
-    top: 1rem;      /* Adjust to match section padding-top */
-    z-index: 10;      /* Ensure it sits above other content if needed */
+    top: 1rem;
+    z-index: 10;
     opacity: 0.8;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.20s ease;
 }
 .hero-corner-logo:hover {
     opacity: 1.0;
 }
 .hero-corner-logo.cvpr-logo {
-    right: 1.5rem;     /* Adjust to match section padding-right */
+    right: 1.5rem;
 }
 .hero-corner-logo img {
-    max-height: 50px; /* Adjust size as needed for corner */
+    max-height: 50px;
 }
 
+/* Publication Title Styles */
 .publication-title {
-    font-family: var(--heading-font);
-    font-size: 3rem;
-    font-weight: 560;
-    letter-spacing: -0.03em;
-    margin-bottom: 1rem;
+    font-family: var(--heading-font); /* Apply Inter */
+    font-size: 2.8rem; /* Slightly adjust size if needed for Inter */
+    font-weight: 600; /* Use appropriate weight for Inter */
+    letter-spacing: -0.02em; /* Adjust letter spacing if needed */
+    margin-bottom: 0.8rem; /* Reduced margin */
     color: var(--text-color);
 }
 
-/* .publication-authors {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-color-light);
+/* Specific Font for "Sketchtopia" */
+.sketchtopia-brand-font {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 400; /* Normal weight */
+    color: var(--primary-color); /* Optional: Use primary color for brand */
+    /* Minor alignment tweak if necessary */
+    position: relative;
+    /* top: 1px; */ /* Uncomment and adjust px value if vertical alignment looks off */
 }
 
-.publication-authors a {
-    color: var(--link-color);
-    font-weight: 500;
-} */
 
-.publication-links .button {
-    margin: 0.3rem;
-    font-weight: 500;
-}
-.publication-links .button.is-dark {
-    background-color: var(--text-color);
-    border-color: var(--text-color);
-    color: var(--light-background);
-}
-.publication-links .button.is-dark:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--light-background);
-    transform: translateY(-2px);
-}
-
+/* Inline Authors Styling */
 .publication-authors-inline {
     font-size: 1.1rem;
-    margin-bottom: 0.25rem; /* Reduced margin */
+    margin-bottom: 0.25rem;
     color: var(--text-color-light);
-    /* Ensure spans display inline */
 }
 .publication-authors-inline .author-block {
-    display: inline; /* Make sure spans are inline */
+    display: inline;
 }
 .publication-authors-inline a {
     color: var(--link-color);
@@ -166,41 +161,61 @@ section.hero {
     color: var(--accent-color);
 }
 
-/* ADDED: Affiliation below inline authors */
+/* Affiliation below inline authors */
 .publication-affiliation {
-    font-size: 1rem; /* Slightly smaller than authors */
+    font-size: 1rem;
     color: var(--text-color-light);
-    margin-bottom: 1rem; /* Space before conference */
+    margin-bottom: 0.8rem; /* Reduced margin */
 }
 
-/* ADDED: Conference Info styling */
+/* Conference Info styling */
 .conference-info {
-    font-size: 1rem; /* Same size as affiliation or slightly larger */
-    font-weight: 500; /* Make it slightly prominent */
-    color: var(--text-color); /* Darker text */
-    margin-bottom: 2rem; /* Space before buttons */
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1.2rem; /* Adjusted margin before moved subtitle */
 }
 
-/* Optional: Shorten button text */
-/* .publication-links .button span:not(.icon) { */
-    /* display: none; Hide text */
-/* } */
+/* Subtitle Margin Adjustment */
+.hero .subtitle.is-4 {
+    margin-top: 1rem; /* Space between conference info and subtitle */
+    margin-bottom: 1.5rem; /* Space before buttons */
+}
+
+
+/* Publication Links Buttons */
+.publication-links .button {
+    margin: 0.3rem;
+    font-weight: 500;
+}
+/* Style for dark button - using text color for background */
+.publication-links .button.is-dark {
+    background-color: var(--text-color); /* Or use primary color: var(--primary-color) */
+    border-color: var(--text-color); /* Or use primary color */
+    color: var(--light-background);
+}
+/* Hover uses accent color */
+.publication-links .button.is-dark:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--light-background); /* Ensure text remains readable */
+    transform: translateY(-2px);
+}
 
 
 /* --- Hero Visual Carousel --- */
 .hero-carousel-section {
-    padding-top: 0;
+    padding-top: 0; /* Remove top padding if directly below hero */
     padding-bottom: 1rem;
 }
 #hero-carousel .item {
-   /* ADDED: Ensure Bulma Carousel basic layout applies */
-   display: none; /* Hidden by default */
+   display: none;
    width: 100%;
-   backface-visibility: hidden; /* Helps with rendering */
-   position: relative; /* Needed for some transitions */
+   backface-visibility: hidden;
+   position: relative;
 }
 #hero-carousel .item.is-active {
-   display: block; /* Shown by JS */
+   display: block;
 }
 #hero-carousel .item-visual img {
     width: 100%;
@@ -212,83 +227,114 @@ section.hero {
 
 /* --- Abstract --- */
 #abstract .content p {
-    line-height: 1.5;
+    line-height: 1.6; /* Keep good line height for readability */
     margin-bottom: 1rem;
-    text-align: justify;
+    text-align: left; /* Ensure left alignment */
 }
 
 /* --- Divider --- */
+/* Commented out */
+/*
 .divider {
     border: none;
-    border-top: 1px dashed #bbb;
-    margin: 2rem auto;
-    width: 80%;
-    opacity: 0.6;
+    border-top: 1px solid var(--border-color);
+    margin: 1.8rem auto; // Reduced margin
+    width: 70%;
+    opacity: 0.7;
 }
+*/
 
 /* --- Key Contributions --- */
+/* UPDATED Card Style */
 .key-contributions .column {
-    padding: 1rem; /* MODIFIED: Reduced padding */
-    border: 1px solid var(--border-color);
+    padding: 1rem; /* Slightly reduced padding */
+    padding-top: 1.2rem; /* Adjusted top padding */
+    border: 1px solid var(--border-color); /* Subtler border */
     border-radius: 8px;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--card-shadow); /* Use updated softer shadow */
     background-color: var(--light-background);
+    border-top-width: 4px; /* Adjusted top border width */
+    border-top-style: solid;
 }
 .key-contributions .column:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px); /* Slightly less lift */
     box-shadow: var(--card-shadow-hover);
 }
-/* ADDED: Distinct left borders */
+/* Distinct left borders using new palette */
 .key-contributions .column:nth-child(1) { /* Dataset */
-    border-left: 5px solid var(--accent-color); /* Orange */
+    /* border-left: 4px solid var(--accent-color); Gold */
+    border-left-color: var(--accent-color); /* Use color property for border */
+    border-top-color: var(--accent-color); /* Match top border color */
+    border-bottom-color: var(--accent-color); /* Match bottom border color */
+    border-right-color: var(--accent-color); /* Match right border color */
 }
 .key-contributions .column:nth-child(2) { /* Agents */
-    border-left: 5px solid var(--primary-color); /* Blue */
+    /* border-left: 4px solid var(--primary-color); Teal */
+    border-left-color: var(--primary-color); /* Use color property for border */
+    border-top-color: var(--primary-color); /* Match top border color */
+    border-bottom-color: var(--primary-color); /* Match bottom border color */
+    border-right-color: var(--primary-color); /* Match right border color */
+
 }
 .key-contributions .column:nth-child(3) { /* Metrics */
-    border-left: 5px solid var(--tertiary-color); /* Green */
+    /* border-left: 4px solid var(--tertiary-color); Mauve or other choice */
+    border-left-color: var(--tertiary-color); /* Use color property for border */
+    border-top-color: var(--tertiary-color); /* Match top border color */
+    border-bottom-color: var(--tertiary-color); /* Match bottom border color */
+    border-right-color: var(--tertiary-color); /* Match right border color */
 }
 
+/* UPDATED Title/Icon */
 .key-contributions .column h2 {
     font-family: var(--heading-font);
-    font-size: 1.5rem; /* MODIFIED: Reduced font size */
-    margin-bottom: 0.75rem; /* MODIFIED: Reduced margin */
-    color: var(--primary-color);
+    font-size: 1.3rem; /* Slightly reduced size */
+    font-weight: 600; /* Inter weight */
+    margin-bottom: 0.5rem; /* Reduced margin */
+    color: var(--primary-color); /* Keep primary color */
     display: flex;
     align-items: center;
 }
 .key-contributions .column h2 .icon {
-    margin-right: 0.75em;
-    color: var(--accent-color); /* Keep icon color consistent or vary with border */
-    /* Optional: Vary icon color */
+    font-size: 1.1rem; /* Reduced icon size */
+    margin-right: 0.5em; /* Reduced space */
+    /* Use accent color for icons for consistency, or match border */
+     color: var(--accent-color);
+    /* Alternative: Match border colors */
     /* .key-contributions .column:nth-child(1) h2 .icon { color: var(--accent-color); } */
     /* .key-contributions .column:nth-child(2) h2 .icon { color: var(--primary-color); } */
     /* .key-contributions .column:nth-child(3) h2 .icon { color: var(--tertiary-color); } */
 }
+.key-contributions .column p {
+    font-size: 0.9rem; /* Ensure description text size is appropriate */
+    color: var(--text-color-light);
+    line-height: 1.5;
+}
 
 /* --- Section Titles --- */
-.section .title.is-3 {
+/* UPDATED Font & Margins */
+.section .title.is-3 { /* Main Section Titles */
     font-family: var(--heading-font);
-    font-size: 2.25rem;
-    font-weight: 600;
+    font-size: 2rem; /* Adjust size if needed for Inter */
+    font-weight: 600; /* Inter weight */
     color: var(--text-color);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem; /* Reduced margin */
 }
 .section .title.is-4 { /* Sub-headings like Agent names */
     font-family: var(--heading-font);
-    font-weight: 600;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+    font-weight: 600; /* Inter weight */
+    font-size: 1.6rem; /* Adjust size */
+    margin-bottom: 0.8rem; /* Reduced margin */
     color: var(--primary-color);
 }
 
 /* --- Dataset Stats --- */
+/* UPDATED Card Style */
 .stat-card {
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 1.2rem; /* Reduced padding */
     box-shadow: var(--card-shadow);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reduced margin */
     background-color: var(--light-background);
     display: flex;
     flex-direction: column;
@@ -297,24 +343,22 @@ section.hero {
     height: 100%;
 }
 .stat-card:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform: translateY(-4px) scale(1.02); /* Slightly reduce scale effect */
     box-shadow: var(--card-shadow-hover);
     border-color: var(--primary-color);
-    /* border-color: var(--accent-color); */
-    /* background-color: var(--secondary-color); */
 }
-/* Ensure icon has transition */
 .stat-card .stat-value .icon {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.20s ease-in-out;
 }
 .stat-card:hover .stat-value .icon {
-   transform: scale(1.05); /* Scale icon */
+   transform: scale(1.05);
 }
+/* UPDATED Value/Icon Style */
 .stat-card .stat-value {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2.2rem; /* Slightly reduced size */
+    font-weight: 600; /* Use appropriate weight (could be heading or body font) */
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem; /* Reduced margin */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,34 +367,35 @@ section.hero {
      margin-bottom: 0;
      display: flex;
      align-items: center;
+     font-size: inherit; /* Inherit size from parent */
+     font-weight: inherit; /* Inherit weight from parent */
 }
 .stat-card .stat-value .icon {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-      color: var(--accent-color);
+      font-size: 1.3rem; /* Reduced icon size */
+      margin-right: 0.4rem; /* Reduced space */
+      color: var(--accent-color); /* Keep accent color for stat icons */
 }
 .stat-card .stat-label {
-    font-size: 1rem;
-    color: var(--text-color-light);
+    font-size: 0.9rem; /* Smaller label */
+    color: var(--text-color); /* Make label slightly darker */
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem; /* Adjust margin */
 }
 .stat-card .stat-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Slightly smaller description */
     color: var(--text-color-light);
     line-height: 1.4;
 }
 
 /* --- Agents Section --- */
 #agents .columns {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced margin */
 }
-/* ADDED: Fix for image overlap */
-#agents .columns .column.is-half:nth-child(2) { /* Target the right (visual) column */
-    overflow: hidden; /* Clip content breaking out */
+#agents .columns .column.is-half:nth-child(2) {
+    overflow: hidden;
 }
 #drawbot-carousel, #guessbot-carousel {
-    width: 100%; /* Ensure carousel fills column but doesn't exceed */
+    width: 100%;
     max-width: 100%;
 }
 #agents .column.is-half .content ul {
@@ -360,15 +405,15 @@ section.hero {
     color: var(--text-color-light);
 }
 #agents .column.is-half .content li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem; /* Reduce spacing */
 }
 #agents .results-carousel .item img {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    max-width: 100%; /* Ensure image respects container */
+    max-width: 100%;
     height: auto;
-    display: block; /* Prevents potential bottom spacing */
-    margin: 0 auto; /* Center if smaller than container */
+    display: block;
+    margin: 0 auto;
 }
 #agents .results-carousel .item .caption {
     font-size: 0.85rem;
@@ -377,9 +422,22 @@ section.hero {
     margin-top: 0.5rem;
 }
 
+/* Specific Font for Agent Names */
+.agent-brand-font {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 400; /* Normal weight */
+    color: var(--primary-color); /* Use primary color */
+    font-size: 1.4rem; /* Slightly smaller or adjust to match base h3 if preferred */
+    /* Minor alignment tweak if necessary */
+    position: relative;
+    /* top: 1px; */
+}
+    
+
 /* --- Metrics Section --- */
+/* UPDATED Card Style */
 .metric-item {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.2rem; /* Adjusted padding */
     border-radius: 8px;
     background-color: var(--light-background);
     box-shadow: var(--card-shadow);
@@ -387,32 +445,34 @@ section.hero {
     height: 100%;
 }
 .metric-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--card-shadow-hover);
 }
-/* ADDED: Distinct icon colors */
-#metrics .column:nth-child(1) .metric-item .icon { color: var(--accent-color); } /* AAO */
-#metrics .column:nth-child(2) .metric-item .icon { color: var(--primary-color); } /* FRS */
-#metrics .column:nth-child(3) .metric-item .icon { color: var(--tertiary-color); } /* MATS */
+/* Distinct icon colors using new palette */
+#metrics .column:nth-child(1) .metric-item .icon { color: var(--accent-color); } /* AAO - Gold */
+#metrics .column:nth-child(2) .metric-item .icon { color: var(--primary-color); } /* FRS - Teal */
+#metrics .column:nth-child(3) .metric-item .icon { color: var(--tertiary-color); } /* MATS - Mauve */
 
+/* UPDATED Icon/Title Style */
 .metric-item .icon.is-large {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    /* Color applied individually above */
+    font-size: 2rem; /* Reduced icon size */
+    margin-bottom: 0.8rem; /* Reduced margin */
 }
-.metric-item .title.is-5 {
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-    color: var(--primary-color);
+.metric-item .title.is-5 { /* Metric Name (AAO, FRS, MATS) */
+    font-family: var(--heading-font); /* Ensure Inter */
+    font-size: 1.3rem; /* Adjust size */
+    font-weight: 600;
+    margin-bottom: 0.2rem; /* Reduced margin */
+    color: var(--primary-color); /* Keep primary color */
 }
-.metric-item .metric-subtitle {
+.metric-item .metric-subtitle { /* Full name */
     font-weight: 500;
     color: var(--text-color);
-    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem; /* Adjust margin */
 }
 .metric-item .metric-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Adjust size */
     color: var(--text-color-light);
     line-height: 1.5;
 }
@@ -430,15 +490,15 @@ section.hero {
     padding: 1rem;
 }
 .example-meta {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
+    font-size: 0.85rem;
     color: var(--text-color-light);
 }
 .example-meta p {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 .example-visual {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     max-width: 80%;
 }
 .example-visual img {
@@ -448,12 +508,12 @@ section.hero {
     height: auto;
 }
 .example-comms {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-color-light);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 .example-comms p {
-     margin-bottom: 0.25rem;
+     margin-bottom: 0.2rem;
 }
 #examples-carousel .caption {
     font-size: 0.9rem;
@@ -463,100 +523,103 @@ section.hero {
     margin: 0 auto;
 }
 
-/* Style Bulma Carousel Navigation */
+/* Style Bulma Carousel Navigation (using new palette) */
 .carousel .carousel-nav-left,
 .carousel .carousel-nav-right {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.25); /* Slightly lighter */
     color: white;
     border: none;
 }
 .carousel .carousel-nav-left:hover,
 .carousel .carousel-nav-right:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .carousel .slider-pagination .slider-page {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.25);
 }
 .carousel .slider-pagination .slider-page.is-active {
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--primary-color); /* Use primary color for active dot */
+    opacity: 0.8;
 }
 
 /* --- Author Cards --- */
 .author-card {
-    background-color: #fff;
+    background-color: var(--light-background);
     border-radius: 8px;
     box-shadow: var(--card-shadow);
-    padding: 2rem 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1.2rem 1rem; /* Adjusted padding */
+    margin-bottom: 1.2rem; /* Adjusted margin */
     text-align: center;
     height: 100%;
 }
 .author-card:hover {
-     transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--card-shadow-hover);
 }
 .author-headshot {
-    width: 120px;
-    height: 120px;
+    width: 100px; /* Slightly smaller */
+    height: 100px;
     border-radius: 50%;
-    margin: 0 auto 1rem auto;
-    border: 3px solid var(--accent-color);
+    margin: 0 auto 0.8rem auto; /* Reduced margin */
+    border: 3px solid var(--accent-color); /* Keep accent border */
     object-fit: cover;
 }
-.author-card .title.is-4{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 1.25rem;
-    margin-bottom: 0.25rem;
+.author-card .title.is-4{ /* Author Name */
+    font-family: var(--heading-font); /* Use Inter */
+    font-weight: 500; /* Medium weight */
+    font-size: 1.15rem; /* Adjust size */
+    margin-bottom: 0.15rem; /* Reduced margin */
+    /* color: var(--text-color); Use standard text color */
+    color: var(--accent-color); /* Use primary color for author name */
 }
 .author-card .affiliation {
     color: var(--text-color-light);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
 }
 .author-links .icon-link {
-    margin: 0 0.5rem;
-    font-size: 1.2rem;
+    margin: 0 0.4rem;
+    font-size: 1.1rem; /* Slightly smaller icons */
     color: var(--text-color-light);
 }
 .author-links .icon-link:hover {
     color: var(--accent-color);
 }
-
+#authors > .container > .column.is-centered {
+    gap: 1.5rem; /* Adjusted gap */
+}
 
 /* --- BibTeX --- */
-/* ADDED: Positioning context for button */
 .bibtex-container {
    position: relative;
 }
 
 #BibTeX pre {
-    background-color: #e9ecef;
-    padding: 1.5rem;
-    /* ADDED: Add padding to prevent overlap with button */
-    padding-right: 6rem; /* Adjust as needed based on button size */
+    background-color: #e9ecef; /* Keep light grey bg for contrast */
+    padding: 1.2rem; /* Adjust padding */
+    padding-right: 6rem; /* Keep space for button */
     border-radius: 4px;
     overflow-x: auto;
-    font-size: 0.85rem;
+    font-size: 0.8rem; /* Adjust size */
     line-height: 1.4;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
-/* ADDED: Positioning styles for button */
+/* Position copy button */
 #BibTeX .copy-bibtex-button {
    position: absolute;
-   top: 0.75rem; /* Adjust spacing */
-   right: 0.75rem; /* Adjust spacing */
-   margin: 0; /* Override potential centering */
-   background-color: var(--primary-color);
+   top: 0.6rem; /* Adjust spacing */
+   right: 0.6rem;
+   margin: 0;
+   background-color: var(--primary-color); /* Use primary color */
    border-color: var(--primary-color);
    color: var(--light-background);
    font-weight: 500;
 }
 #BibTeX .copy-bibtex-button:hover {
-    background-color: var(--link-color);
+    background-color: var(--link-color); /* Use darker link color on hover */
     border-color: var(--link-color);
     transform: translateY(-1px);
 }
@@ -565,44 +628,48 @@ section.hero {
 /* --- Footer --- */
 .footer {
     background-color: var(--dark-background);
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.5rem; /* Adjust padding */
     text-align: center;
     color: var(--text-color-light);
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Adjust size */
 }
-/* ADDED: Footer Logos styling */
 .footer-logos {
-    margin-bottom: 2rem; /* Space between logos and text */
+    margin-bottom: 1.5rem; /* Adjust margin */
 }
 .footer-logos .column {
-    padding: 0 1rem; /* Spacing between logos */
+    padding: 0 0.8rem; /* Adjust spacing */
 }
 .footer-logos img {
-    max-height: 65px; /* Control logo height */
-    opacity: 0.70; /* Make logos slightly subtle */
+    max-height: 55px; /* Adjust logo height */
+    opacity: 0.75;
     transition: opacity 0.2s ease-in-out;
 }
 .footer-logos img:hover {
-    opacity: 1.0; /* Full opacity on hover */
+    opacity: 1.0;
 }
 .footer a {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Use primary color for links */
     font-weight: 500;
 }
 .footer a:hover {
     color: var(--accent-color);
 }
-
-/* Existing .footer p styles */
 .footer p {
-   margin-bottom: 0.5rem; /* Adjust spacing between text lines */
+   margin-bottom: 0.4rem; /* Adjust spacing */
 }
 
 
 /* --- Responsiveness --- */
 @media screen and (max-width: 1023px) {
+    /* Adjustments for Tablet */
+    .section .title.is-3 {
+        font-size: 1.8rem; /* Adjust title size */
+    }
+     .section .title.is-4 {
+        font-size: 1.4rem; /* Adjust title size */
+    }
     #agents .columns .column.is-half {
-        width: 100%;
+        width: 100%; /* Already present, confirm behavior */
     }
     #agents .results-carousel {
         margin-top: 1.5rem;
@@ -612,34 +679,35 @@ section.hero {
     }
      .dataset-stats .column.is-4,
      #metrics .column.is-4 {
+        /* Ensure cards don't become too wide */
+        max-width: 360px;
         margin-left: auto;
         margin-right: auto;
      }
 }
 
 @media screen and (max-width: 768px) {
+    /* Adjustments for Mobile */
     .publication-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem; /* Adjust size */
     }
     .section .title.is-3 {
-        font-size: 2rem;
+        font-size: 1.6rem; /* Adjust size */
     }
      .section .title.is-4 {
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* Adjust size */
     }
     .key-contributions .column,
     .stat-card,
     .metric-item {
-        padding: 1.25rem;
+        padding: 1rem; /* Adjust padding */
     }
-    /* Make cards slightly wider on mobile */
+    /* Make cards slightly wider on mobile - retained from original */
     .dataset-stats .column.is-4,
     #metrics .column.is-4 {
-        width: 90%; /* MODIFIED: Slightly wider */
+        width: 90%;
         max-width: 400px;
     }
-    /* Stack contribution cards earlier if needed */
-    /* .key-contributions .column { width: 80%; margin: 0 auto 1rem auto; } */
 
     .author-card .column.is-one-third {
         width: 80%;
@@ -654,15 +722,15 @@ section.hero {
         max-width: 95%;
     }
 
-    /* Adjust BibTeX button positioning/padding on mobile if needed */
+    /* Adjust BibTeX button positioning/padding on mobile */
     #BibTeX pre {
-        padding-right: 1.5rem; /* Reduce padding */
-        padding-top: 3rem; /* Add padding top for button space */
+        padding-right: 1rem;
+        padding-top: 3.5rem; /* Ensure enough space for button */
     }
     #BibTeX .copy-bibtex-button {
         top: 0.5rem;
         right: 0.5rem;
-        /* Optionally make it full width or place differently */
-        /* position: static; width: 100%; margin-top: 0.5rem; */
+        /* Consider making slightly larger tap target if needed */
+        /* padding: 0.5rem 0.75rem; */
     }
 }
