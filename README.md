@@ -1,18 +1,19 @@
 
 # Sketchtopia Project Website
 
-This repository contains the source code for the [Sketchtopia project website](https://sketchtopia.github.io), showcasing our CVPR 2025 paper: "Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback."
+This repository contains the source code for the [Sketchtopia project website](https://sketchtopia25.github.io/), showcasing our CVPR 2025 paper: "Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback."
 
 The website provides an overview of the Sketchtopia dataset, our foundational AI agents (DRAWBOT & GUESSBOT), evaluation metrics, qualitative results, and resources for the research community.
 
 If you find Sketchtopia useful in your research, please cite our CVPR paper:
 
 ```
-@inproceedings{sketchtopia_2025,
-  title={Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback},
-  author={Mohd Hozaifa Khan, Ravi Kiran S.}
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2025}
+@inproceedings{khan2025sketchtopia,
+  author    = {Mohd Hozaifa Khan and Ravi Kiran Sarvadevabhatla},
+  title     = {Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2025},
+  url       = {https://sketchtopia25.github.io/} 
 }
 ```
 
