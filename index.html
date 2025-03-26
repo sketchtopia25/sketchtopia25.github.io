@@ -2,153 +2,150 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback.">
+  <meta name="description" content="Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback.">
   <meta name="keywords" content="Sketchtopia, Asynchronous Communication, Multimodal AI, Sketching, Dataset, Agents, Benchmark, CVPR 2025">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sketchtopia: Asynchronous Multimodal Sketch Communication</title>
+  <title>Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXXX');
-  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Add Permanent Marker ONLY for the specific brand word -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
 
+  <!-- Font Awesome (for icons) -->
+  <!-- Note: Using CDN link; local file ./static/js/fontawesome.all.min.js is also included later but CSS link is needed here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Bulma CSS -->
   <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <!-- Bulma Carousel -->
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Bulma Slider (Commented out as not used) -->
+  <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <link rel="icon" href="./static/images/favicon.svg"> <!-- Add a favicon if you have one -->
+
+   <!-- JavaScript Dependencies -->
+   <!-- jQuery removed -->
+   <!-- FontAwesome JS (Defer ensures it loads after HTML elements) -->
+   <script defer src="./static/js/fontawesome.all.min.js"></script>
+   <!-- Bulma Carousel JS -->
+   <script src="./static/js/bulma-carousel.min.js"></script>
+   <!-- Bulma Slider JS (Commented out as not used) -->
+   <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
+   <!-- Custom JS will be loaded at the end of body -->
 </head>
 <body>
 
+<!-- Navbar: IDs match section IDs -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://cvit.iiit.ac.in/">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
+      <a class="navbar-item" href="https://cvit.iiit.ac.in/" target="_blank">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
       </a>
+      <!-- Navigation Links -->
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#contributions">Contributions</a>
+      <a class="navbar-item" href="#dataset">Dataset</a>
+      <a class="navbar-item" href="#agents">Agents</a>
+      <a class="navbar-item" href="#metrics">Metrics</a>
+      <a class="navbar-item" href="#examples">Examples</a>
+      <a class="navbar-item" href="#authors">Authors</a>
+      <a class="navbar-item" href="#resources">Resources</a>
+      <a class="navbar-item" href="#BibTeX">Citation</a>
     </div>
   </div>
 </nav>
 
-
+<!-- Hero Section (Text Content) -->
 <section class="hero">
+  <!-- Corner Logo -->
+  <a href="https://cvpr.thecvf.com" class="hero-corner-logo cvpr-logo" target="_blank">
+    <img src="./static/images/logo_cvpr2025.jpg" alt="CVPR 2025 Logo">
+  </a>
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback.</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://www.linkedin.com/in/mohd-hozaifa-khan/" target="_blank">Mohd Hozaifa Khan</a>,</span>
-            <span class="author-block">
-              <a href="https://www.linkedin.com/in/ravi-kiran-sarvadevabhatla/" target="_blank">Ravi Kiran Sarvadevabhatla</a></span>
-            </div>
+          <!-- UPDATED H1 Title with Span -->
+          <h1 class="title publication-title">
+            <span class="sketchtopia-brand-font">Sketchtopia</span>: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback
+          </h1>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">IIIT Hyderabad</span>
+          <!-- Author listing inline -->
+          <div class="is-size-5 publication-authors publication-authors-inline">
+            <span class="author-block"><a href="https://www.linkedin.com/in/mohd-hozaifa-khan-361b7814a/" target="_blank">Mohd Hozaifa Khan</a>,</span>
+            <span class="author-block"><a href="https://ravika.github.io" target="_blank">Ravi Kiran Sarvadevabhatla</a></span>
           </div>
 
+          <!-- Affiliation below inline authors -->
+          <div class="is-size-6 publication-affiliation">
+            <span class="author-block">
+              <a href="https://www.iiit.ac.in/" target="_blank">IIIT Hyderabad</a>
+            </span>
+          </div>
+
+          <!-- Conference Information -->
+            <div class="is-size-6 conference-info">
+            <a href="https://cvpr2025.thecvf.com/" target="_blank">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025</a>
+            </div>
+
+          <!-- Publication Links -->
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              <!-- PDF Link -->
               <span class="link-block">
-                <a href="[PAPER-PDF-LINK]"
+                <a href="[Path to Paper PDF]" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper (CVPR 2025)</span>
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
                 </a>
               </span>
+              <!-- ArXiv Link -->
               <span class="link-block">
-                <a href="[ARXIV-LINK]"
+                <a href="[Link to ArXiv Paper]" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Code Link. -->
+              <!-- Code Link -->
               <span class="link-block">
-                <a href="[CODE-GITHUB-LINK]"
+                <a href="[Link to GitHub Code Repo]" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (GitHub)</span>
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
+              <!-- Dataset Link -->
               <span class="link-block">
-                <a href="[DATASET-LINK]"
+                <a href="[Link to Dataset Info/Access]" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
+                  <span class="icon"><i class="fas fa-database"></i></span>
                   <span>Dataset</span>
                   </a>
               </span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero is-small">  <!-- Image Slideshow Section -->
-  <div class="hero-body">
-    <div class="container">
-      <div id="image-carousel" class="carousel results-carousel">
-        <div class="item">
-          <img src="./static/images/interpolate_end.jpg" alt="Slideshow Image 1">  <!-- Replace with slideshow images -->
-        </div>
-        <div class="item">
-          <img src="./static/images/interpolate_start.jpg" alt="Slideshow Image 2">  <!-- Replace with slideshow images -->
-        </div>
-        <!-- Add more slideshow items here -->
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section is-light is-small">  <!-- Abstract Section -->
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              We introduce Sketchtopia, a large-scale dataset and AI framework designed to explore goal-driven, multimodal communication through asynchronous interactions in a Pictionary-inspired setup. Sketchtopia captures natural human interactions, including freehand sketches, open-ended guesses, and iconic feedback gestures, showcasing the complex dynamics of cooperative communication under constraints. It features over 20K gameplay sessions from 916 players, capturing 263K sketches, 10K erases, 56K guesses and 19.4K iconic feedbacks. We introduce multimodal foundational agents with capabilities for generative sketching, guess generation and asynchronous communication. Our dataset also includes 800 human-agent sessions for benchmarking the agents. We introduce novel metrics to characterize collaborative success, responsiveness to feedback and inter-agent asynchronous communication. Sketchtopia pushes the boundaries of multimodal AI, establishing a new benchmark for studying asynchronous, goal-oriented interactions between humans and AI agents.
-            </p>
+            <!-- MOVED SUBTITLE HERE -->
+            <div class="subtitle is-4">
+              A new benchmark dataset and foundational agents for exploring human-AI collaboration through drawing and language.
           </div>
         </div>
       </div>
@@ -156,371 +153,474 @@
   </div>
 </section>
 
+<!-- Hero Visual Carousel Section -->
+<section class="section hero-carousel-section" id="hero-visuals">
+    <div class="container is-max-widescreen">
+        <div id="hero-carousel" class="carousel">
+            <!-- Placeholder Slides - Content to be added in Phase 4 -->
+            <div class="item item-visual">
+                <img src="./static/images/placeholder-hero-1.png" alt="Sketchtopia Teaser Visual 1 - Example Sketch Interaction">
+            </div>
+            <div class="item item-visual">
+                <img src="./static/images/placeholder-hero-2.png" alt="Sketchtopia Teaser Visual 2 - Diverse Sketches from Dataset">
+            </div>
+            <div class="item item-visual">
+                <img src="./static/images/placeholder-hero-3.png" alt="Sketchtopia Teaser Visual 3 - Asynchronous Communication Example">
+            </div>
+        </div>
+    </div>
+</section>
 
-<section class="hero teaser">
+<!-- Abstract Section -->
+<section class="section" id="abstract">
+   <div class="hero-body"> <!-- Consider if hero-body padding is needed or just container -->
+        <div class="container is-max-desktop">
+            <div class="columns is-centered"> <!-- Removed has-text-centered -->
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered">Abstract</h2>
+                    <div class="content"> <!-- Text alignment handled by CSS -->
+                        <p>
+                          We introduce Sketchtopia, a large-scale dataset and AI framework designed to explore goal-driven, multimodal communication through asynchronous interactions in a Pictionary-inspired setup. Sketchtopia captures natural human interactions, including freehand sketches, open-ended guesses, and iconic feedback gestures, showcasing the complex dynamics of cooperative communication under constraints. It features over 20K gameplay sessions from 916 players, capturing 263K sketches, 10K erases, 56K guesses and 19.4K iconic feedbacks.
+                        </p>
+                        <p>
+                          We introduce multimodal foundational agents with capabilities for generative sketching, guess generation and asynchronous communication. Our dataset also includes 800 human-agent sessions for benchmarking the agents. We introduce novel metrics to characterize collaborative success, responsiveness to feedback and inter-agent asynchronous communication. Sketchtopia pushes the boundaries of multimodal AI, establishing a new benchmark for studying asynchronous, goal-oriented interactions between humans and AI agents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+</section>
+
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
+
+<!-- Key Contributions Section -->
+<section class="section key-contributions" id="contributions">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <p class="subtitle has-text-centered">
-        Real-world communication is asynchronous, multimodal, and feedback-driven – qualities often missing in AI. <strong>Sketchtopia</strong> bridges this gap, introducing a novel framework for natural AI communication. We present:
-      </p>
-      <div class="key-contributions">
-        <div class="columns is-centered">
-          <div class="column">
-            <h2><span class="icon"><i class="fas fa-database"></i></span> Large-Scale Asynchronous Sketch Dataset</h2>
-            <p>Sketchtopia provides the **largest and richest dataset** for studying asynchronous multimodal communication through sketching. Featuring <strong>20K+ gameplay sessions</strong>, <strong>263K+ sketches</strong>, iconic feedback, and open-ended vocabulary, it's an unparalleled resource for AI research.</p>
-          </div>
-          <div class="column">
-            <h2><span class="icon"><i class="fas fa-robot"></i></span> Foundational Asynchronous AI Agents</h2>
-            <p>Meet <strong>DRAWBOT and GUESSBOT</strong>, AI agents designed to communicate naturally in asynchronous sketch-based interactions. DRAWBOT sketches responsively, while GUESSBOT guesses intelligently in real-time, demonstrating a step towards human-like AI communication.</p>
-          </div>
-          <div class="column">
-            <h2><span class="icon"><i class="fas fa-chart-line"></i></span> Novel Benchmarking Metrics</h2>
-            <p>We introduce metrics tailored for asynchronous multimodal AI: <strong>AAO</strong>, <strong>FRS</strong>, and <strong>MATS</strong>. These metrics evaluate not just task success, but the naturalness and responsiveness of AI communication, establishing a new benchmark for the field.</p>
-          </div>
-        </div>
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-             <img src="./static/images/[IMAGE-ARCHITECTURE-DIAGRAM].png" alt="Sketchtopia System Architecture" width="80%">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section is-light is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">Dataset Highlights: Multimodal & Asynchronous</h2>
-      <div class="dataset-stats">
-         <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h2><span class="icon"><i class="fas fa-gamepad"></i></span> 20K+ Sessions</h2>
-            </div>
-            <div class="column has-text-centered">
-              <h2><span class="icon"><i class="fas fa-pencil-alt"></i></span> 263K+ Sketches</h2>
-            </div>
-            <div class="column has-text-centered">
-              <h2><span class="icon"><i class="fas fa-comment-dots"></i></span> 56K+ Guesses</h2>
-            </div>
-            <div class="column has-text-centered">
-              <h2><span class="icon"><i class="fas fa-thumbs-up"></i></span> 19K+ Feedback</h2>
-            </div>
-            <div class="column has-text-centered">
-              <h2><span class="icon"><i class="fas fa-users"></i></span> 916 Players</h2>
-            </div>
-        </div>
-           <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <p>Explore the richness of Sketchtopia, capturing diverse human communication strategies in a collaborative game setting.</p>
-            </div>
-          </div>
-      </div>
-
-
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-4">Sketches: Time-Series Visual Communication</h3>
-          <div class="content has-text-justified">
-        <p>Our dataset features <strong>263K+ freehand sketches</strong>, captured as dynamic, time-series SVG data. This rich format allows AI to learn from the nuanced process of sketching as communication unfolds.</p>
-          </div>
-          <div id="sketch-carousel" class="carousel results-carousel">
-          <div class="item item-sketch">
-            <img src="./static/images/sketches/[SKETCH-EXAMPLE-1.jpg]" alt="Sketch Example 1">
-          </div>
-          <div class="item item-sketch">
-            <img src="./static/images/sketches/[SKETCH-EXAMPLE-2.jpg]" alt="Sketch Example 2">
-          </div>
-          <div class="item item-sketch">
-            <img src="./static/images/sketches/[SKETCH-EXAMPLE-3.jpg]" alt="Sketch Example 3">
-          </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-4">Guesses: Open-Ended Textual Interpretations</h3>
-          <div class="content has-text-justified">
-        <p>Sketchtopia includes <strong>56K+ open-ended text guesses</strong>, reflecting the diverse ways humans interpret visual clues. These guesses offer insights into real-time understanding and evolving interpretations of sketches.</p>
-          </div>
-          <div class="content">
-        <p><strong>Example Guesses:</strong> "fruit", "idea", "communication" - <small>See dataset for more examples.</small> </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-4">Iconic Feedback: Guiding Non-Verbal Cues</h3>
-          <div class="content has-text-justified">
-            <p>We introduce **19K+ instances of iconic feedback (👍, 👎, ❓)**, capturing non-verbal cues that guide asynchronous communication. These simple icons provide a powerful mechanism for AI to learn nuanced feedback-driven interaction.</p>
-          </div>
-          <div class="content has-text-centered">
-            <img src="./static/images/icons/thumb_up.svg" alt="Thumbs Up Icon" width="50">
-            <img src="./static/images/icons/thumb_down.svg" alt="Thumbs Down Icon" width="50">
-            <img src="./static/images/icons/question_mark.svg" alt="Question Mark Icon" width="50">
-            <p><b>Feedback Icons:</b> 👍 (Correct), 👎 (Incorrect), ❓ (Uncertain)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Meet Sketchtopia Agents: DRAWBOT & GUESSBOT</h2>
-
+    <h2 class="title is-3 has-text-centered">Key Contributions</h2>
     <div class="columns is-centered">
-      <div class="column is-half">
-        <h3 class="title is-4">DRAWBOT: Generative Asynchronous Sketching</h3>
-        <div class="content has-text-justified">
-          <p>DRAWBOT, our generative sketching agent, embodies the Drawer role in Sketchtopia. Powered by Stable Diffusion and adapter modules, DRAWBOT creates communicative sketches, adapting in real-time to guesses and feedback, enabling asynchronous interaction.</p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-6 has-text-centered">
-            <img src="./static/images/[HUMAN-SKETCH-EXAMPLE.jpg]"
-                 class="interpolation-image"
-                 alt="Human Sketches"/>
-            <p>Human Sketches</p>
-          </div>
-          <div class="column is-6 has-text-centered">
-            <img src="./static/images/[DRAWBOT-SKETCH-EXAMPLE.jpg]"
-                 class="interpolation-image"
-                 alt="DRAWBOT Sketches"/>
-            <p class="is-bold">DRAWBOT Sketches</p>
-          </div>
-        </div>
-        <br/>
-        <div class="content has-text-centered">
-          <img src="./static/images/[IMAGE-DRAWBOT-ARCHITECTURE]" alt="DRAWBOT Architecture Diagram" width="80%">
-          <p class="caption">DRAWBOT Architecture Overview</p>
-        </div>
-         <div class="content has-text-centered">
-          <video id="drawbot-demo-video" autoplay controls muted loop playsinline width="75%">
-            <source src="./static/videos/[VIDEO-DRAWBOT-DEMO]"
-                    type="video/mp4">
-          </video>
-          <p class="caption">DRAWBOT Demo: Asynchronous Sketching in Action</p>
-        </div>
+      <!-- Contribution 1: Dataset -->
+      <div class="column">
+        <h2><span class="icon"><i class="fas fa-database"></i></span> Rich Dataset</h2>
+        <p>Large-scale, multimodal data capturing real-world asynchronous sketching dynamics with iconic feedback.</p>
       </div>
-
-      <div class="column is-half">
-        <h3 class="title is-4">GUESSBOT: Intelligent Asynchronous Guessing</h3>
-        <div class="content has-text-justified">
-          <p>GUESSBOT, our intelligent guessing agent, embodies the Guesser role. Utilizing a retrieval-based approach, GUESSBOT analyzes evolving canvases and game history to generate real-time guesses, actively participating in asynchronous communication.</p>
-        </div>
-         <div class="content has-text-centered">
-          <img src="./static/images/[IMAGE-GUESSBOT-FRAMEWORK]" alt="GUESSBOT Framework Diagram" width="80%">
-          <p class="caption">GUESSBOT Retrieval-Based Guessing Framework</p>
-        </div>
-         <div class="content">
-            <p><b>Example Guesses:</b> <img src="./static/images/game_examples/[GUESSBOT-SUCCESS-EXAMPLE.png]" alt="GUESSBOT Success Example" width="100"> <img src="./static/images/game_examples/[GUESSBOT-FEEDBACK-EXAMPLE.png]" alt="GUESSBOT Feedback Example" width="100">  <img src="./static/images/game_examples/[GUESSBOT-NEARMISS-EXAMPLE.png]" alt="GUESSBOT Nearmiss Example" width="100"> </p>
-          </div>
+      <!-- Contribution 2: Agents -->
+      <div class="column">
+        <h2><span class="icon"><i class="fas fa-robot"></i></span> Foundational Agents</h2>
+        <p>DRAWBOT & GUESSBOT designed for asynchronous interaction, generative sketching, and feedback responsiveness.</p>
+      </div>
+      <!-- Contribution 3: Metrics -->
+      <div class="column">
+         <h2><span class="icon"><i class="fas fa-chart-line"></i></span> New Benchmarks</h2>
+        <p>Novel metrics (AAO, FRS, MATS) tailored to evaluate asynchronous multimodal collaboration effectiveness and naturalness.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
-<section class="section is-light is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">Benchmarking: Novel Metrics for Asynchronous AI</h2>
-
-      <div class="columns is-centered">
-        <div class="column is-half has-text-centered">
-          <h3 class="title is-4">Asynchronous Action Overlap (AAO)</h3>
-          <div class="content has-text-justified">
-            <p>AAO measures the simultaneity of agent actions, quantifying asynchronous interaction.</p>
-          </div>
-           <img src="./static/images/metrics/[IMAGE-METRIC-AAO]" alt="AAO Metric Visualization" width="80%">
-        </div>
-        <div class="column is-half has-text-centered">
-          <h3 class="title is-4">Feedback Responsiveness Score (FRS)</h3>
-          <div class="content has-text-justified">
-            <p>FRS evaluates Guesser response to Drawer feedback, gauging feedback effectiveness.</p>
-          </div>
-           <img src="./static/images/metrics/[IMAGE-METRIC-FRS]" alt="FRS Metric Visualization" width="80%">
-        </div>
-        <div class="column is-half has-text-centered">
-          <h3 class="title is-4">Multimodal Action Timing Similarity (MATS)</h3>
-          <div class="content has-text-justified">
-            <p>MATS compares agent timing to human patterns, assessing human-like pacing.</p>
-          </div>
-           <img src="./static/images/metrics/[IMAGE-METRIC-MATS]" alt="MATS Metric Visualization" width="80%">
-        </div>
-      </div>
-
-       <div class="columns is-centered">
-        <div class="column is-full-width has-text-centered">
-          <h3 class="title is-4">Key Results Summary</h3>
-           <img src="./static/images/[IMAGE-METRICS-SUMMARY-GRAPH]" alt="Metrics Summary Graph" width="80%">
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<section class="section">
+<!-- Dataset Highlights Section -->
+<section class="section is-light is-small" id="dataset">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Qualitative Insights: Example Sessions</h2>
-
-    <div class="columns is-centered">
-      <div class="column is-half">
-        <h3 class="title is-4">Human-Human Success Cases</h3>
-        <div class=" game-example-gallery">
-           <div class="columns is-multiline">
-              <div class="column is-one-third">
-                <img src="./static/images/game_examples/[HH-SUCCESS-1.png]" alt="HH Success Example 1">
-                 <p class="caption">Success!</p>
-              </div>
-              <div class="column is-one-third">
-                <img src="./static/images/game_examples/[HH-SUCCESS-2.png]" alt="HH Success Example 2">
-                 <p class="caption">Success!</p>
-              </div>
-              <div class="column is-one-third">
-                <img src="./static/images/game_examples/[HH-SUCCESS-3.png]" alt="HH Success Example 3">
-                 <p class="caption">Success!</p>
+    <h2 class="title is-3 has-text-centered">Dataset Highlights: Multimodal & Asynchronous</h2>
+    <div class="dataset-stats">
+      <div class="columns is-centered is-multiline">
+        <!-- Stat Card 1: Sessions -->
+        <div class="column is-4 has-text-centered">
+          <div class="stat-card">
+            <div class="stat-value">
+              <h2><span class="icon"><i class="fas fa-gamepad"></i></span> 20K+</h2>
+            </div>
+            <div class="stat-label">Sessions</div>
+             <div class="stat-description">
+               Rich collection capturing diverse human communication strategies.
               </div>
           </div>
         </div>
-      </div>
-       <div class="column is-half">
-        <h3 class="title is-4">Human-Agent Success Cases</h3>
-        <div class=" game-example-gallery">
-           <div class="columns is-multiline">
-              <div class="column is-one-third">
-                <img src="./static/images/game_examples/[HA-SUCCESS-1.png]" alt="HA Success Example 1">
-                 <p class="caption">Success!</p>
+        <!-- Stat Card 2: Sketches -->
+        <div class="column is-4 has-text-centered">
+           <div class="stat-card">
+                <div class="stat-value">
+                  <h2><span class="icon"><i class="fas fa-pencil-alt"></i></span> 263K+</h2>
+                </div>
+                <div class="stat-label">Sketches</div>
+                <div class="stat-description">
+                 Massive corpus of freehand drawings for visual communication analysis.
+                </div>
+            </div>
+        </div>
+        <!-- Stat Card 3: Guesses -->
+        <div class="column is-4 has-text-centered">
+            <div class="stat-card">
+                <div class="stat-value">
+                  <h2><span class="icon"><i class="fas fa-comment-dots"></i></span> 56K+</h2>
+                </div>
+                <div class="stat-label">Open-ended Guesses</div>
+                 <div class="stat-description">
+                 Natural language interpretations reflecting understanding of visual cues.
+                  </div>
               </div>
-              <div class="column is-one-third">
-                <img src="./static/images/game_examples/[HA-SUCCESS-2.png]" alt="HA Success Example 2">
-                 <p class="caption">Success!</p>
-              </div>
-              <div class="column is-one-third">
-                <img src="./static/images/game_examples/[HA-SUCCESS-3.png]" alt="HA Success Example 3">
-                 <p class="caption">Success!</p>
-              </div>
+        </div>
+        <!-- Stat Card 4: Feedback -->
+        <div class="column is-4 has-text-centered">
+           <div class="stat-card">
+                <div class="stat-value">
+                  <h2><span class="icon"><i class="fas fa-thumbs-up"></i></span> 19K+</h2>
+                </div>
+                <div class="stat-label">Iconic Feedback</div>
+                  <div class="stat-description">
+                 Non-verbal signals (👍👎❓) guiding the collaborative process asynchronously.
+                  </div>
+            </div>
+        </div>
+        <!-- Stat Card 5: Players -->
+        <div class="column is-4 has-text-centered">
+          <div class="stat-card">
+            <div class="stat-value">
+              <h2><span class="icon"><i class="fas fa-users"></i></span> 916</h2>
+            </div>
+            <div class="stat-label">Players</div>
+             <div class="stat-description">
+                Data from a diverse participant group ensuring robust analysis.
+            </div>
           </div>
+        </div>
+        <!-- Stat Card 6: Human-Agent Sessions -->
+        <div class="column is-4 has-text-centered">
+           <div class="stat-card">
+                <div class="stat-value">
+                  <h2><span class="icon"><i class="fas fa-handshake"></i></span> 800</h2>
+                </div>
+                <div class="stat-label">Human-Agent Sessions</div>
+                  <div class="stat-description">
+                 Valuable benchmark data from humans interacting with our agents.
+                </div>
+           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
-<section class="section is-light">
+<!-- Agents Section -->
+<section class="section" id ="agents">
+  <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Sketchtopia Agents</h2>
+      <!-- DRAWBOT -->
+      <h3 class="title is-4"><span class="agent-brand-font">DRAWBOT</span>: The Generative Sketcher</h3>
+      <div class="columns">
+          <!-- Column 1: Text Content -->
+          <div class="column is-half">
+              <p>
+                  DRAWBOT brings concepts to life through asynchronous sketching, leveraging state-of-the-art generative models fine-tuned for iterative refinement based on communication context.
+              </p>
+              <div class="content">
+                  <ul>
+                      <li>Generates sketches from target concepts, adapting to canvas state.</li>
+                      <li>Iteratively refines drawings based on guesses and feedback signals.</li>
+                      <li>Capable of incorporating iconic feedback (👍, 👎, ❓) to enhance clarity.</li>
+                      <li>Operates asynchronously, deciding when to draw or update.</li>
+                  </ul>
+              </div>
+          </div>
+          <!-- Column 2: Visual Content (Carousel) -->
+          <div class="column is-half">
+               <div id="drawbot-carousel" class="carousel results-carousel">
+                    <!-- Placeholder Slides - Content to be added in Phase 4 -->
+                    <div class="item item-sketch">
+                      <img src="./static/images/placeholder_drawbot_arch1.png" alt="DRAWBOT Architecture Overview Diagram">
+                      <p class="caption">DRAWBOT Architecture: Key modules for asynchronous drawing.</p>
+                  </div>
+                  <div class="item item-sketch">
+                      <img src="./static/images/placeholder_drawbot_arch2.png" alt="DRAWBOT Data Flow Diagram During Interaction">
+                      <p class="caption">DRAWBOT Interaction Flow: Processing context and refining sketches.</p>
+                  </div>
+                </div>
+          </div>
+      </div>
+
+      <!-- GUESSBOT -->
+      <h3 class="title is-4"><span class="agent-brand-font">GUESSBOT</span>: The Intelligent Guesser</h3>
+       <div class="columns">
+           <!-- Column 1: Text Content -->
+           <div class="column is-half">
+               <p>
+                   GUESSBOT interprets evolving sketches and communication cues to make intelligent guesses, using a retrieval-based framework informed by historical interaction data.
+               </p>
+               <div class="content">
+                   <ul>
+                       <li>Analyzes the current sketch canvas content using vision models.</li>
+                       <li>Considers interaction history, including previous guesses and feedback.</li>
+                       <li>Generates relevant textual guesses using efficient retrieval and filtering.</li>
+                       <li>Acts asynchronously, deciding when new information warrants a guess.</li>
+                   </ul>
+               </div>
+           </div>
+           <!-- Column 2: Visual Content (Carousel) -->
+           <div class="column is-half">
+              <div id="guessbot-carousel" class="carousel results-carousel">
+                  <!-- Placeholder Slides - Content to be added in Phase 4 -->
+                  <div class="item item-sketch">
+                      <img src="./static/images/placeholder_guessbot_arch1.png" alt="GUESSBOT Architecture Overview Diagram">
+                      <p class="caption">GUESSBOT Architecture: Framework for sketch interpretation and guessing.</p>
+                  </div>
+                  <div class="item item-sketch">
+                      <img src="./static/images/placeholder_guessbot_arch2.png" alt="GUESSBOT Data Flow Diagram for Guess Generation">
+                      <p class="caption">GUESSBOT Guessing Flow: From canvas analysis to filtered guess output.</p>
+                  </div>
+              </div>
+            </div>
+       </div>
+  </div>
+</section>
+
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
+
+<!-- Metrics Section -->
+<section class="section is-light is-small" id="metrics">
+  <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Evaluating Asynchronous Collaboration</h2>
+        <div class="columns is-centered">
+          <!-- Metric 1: AAO -->
+          <div class="column is-4">
+             <div class="metric-item has-text-centered">
+                <!-- Icon updated in original code, class indicates semantic meaning -->
+                <span class="icon is-large"><i class="fas fa-layer-group"></i></span>
+                <h4 class="title is-5">AAO</h4>
+                <p class="metric-subtitle">Asynchronous Action Overlap</p>
+                <p class="metric-description">Measures concurrent actions between agents. Higher AAO suggests more natural, human-like interaction dynamics.</p>
+             </div>
+          </div>
+          <!-- Metric 2: FRS -->
+          <div class="column is-4">
+             <div class="metric-item has-text-centered">
+                 <!-- Icon updated in original code -->
+                <span class="icon is-large"><i class="fas fa-message-check"></i></span> <!-- Corrected Icon -->
+                 <h4 class="title is-5">FRS</h4>
+                <p class="metric-subtitle">Feedback Responsiveness Score</p>
+                <p class="metric-description">Quantifies how effectively agents adapt to feedback (👍👎❓), crucial for collaborative goal achievement.</p>
+             </div>
+          </div>
+          <!-- Metric 3: MATS -->
+          <div class="column is-4">
+             <div class="metric-item has-text-centered">
+                 <!-- Icon updated in original code -->
+                <span class="icon is-large"><i class="fas fa-stopwatch"></i></span>
+                <h4 class="title is-5">MATS</h4>
+                <p class="metric-subtitle">Multimodal Action Timing Similarity</p>
+                <p class="metric-description">Compares agent action timing patterns with human interactions to assess the naturalness of pacing.</p>
+             </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
+
+<!-- Examples Section -->
+<section class="section" id ="examples">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Qualitative Insights: Example Sessions</h2>
+
+    <div id="examples-carousel" class="carousel">
+        <!-- Placeholder Example Slide 1 - Content to be added in Phase 4 -->
+        <div class="item item-example">
+           <div class="example-slide-content">
+              <div class="example-meta">
+                <p><strong>Target:</strong> [Target Word Example 1]</p>
+                <p><strong>Type:</strong> [HH / HA]</p>
+              </div>
+              <div class="example-visual">
+                <img src="./static/images/examples/placeholder_example_1.png" alt="Sketch sequence for [Target Word Example 1]">
+              </div>
+              <div class="example-comms">
+                <p><strong>Key Guess:</strong> "[Key Guess Example 1]"</p>
+                <p><strong>Feedback Given:</strong> [Feedback Icon Example 1]</p>
+              </div>
+              <p class="caption">[Describe significance of Example 1]</p>
+            </div>
+        </div>
+        <!-- Placeholder Example Slide 2 -->
+         <div class="item item-example">
+           <div class="example-slide-content">
+              <div class="example-meta">
+                <p><strong>Target:</strong> [Target Word Example 2]</p>
+                <p><strong>Type:</strong> [HH / HA]</p>
+              </div>
+              <div class="example-visual">
+                 <img src="./static/images/examples/placeholder_example_2.gif" alt="Animated sketch sequence for [Target Word Example 2]">
+              </div>
+              <div class="example-comms">
+                <p><strong>Key Guess:</strong> "[Key Guess Example 2]"</p>
+                <p><strong>Feedback Given:</strong> [Feedback Icon Example 2]</p>
+              </div>
+              <p class="caption">[Describe significance of Example 2]</p>
+            </div>
+        </div>
+        <!-- Placeholder Example Slide 3 -->
+        <div class="item item-example">
+           <div class="example-slide-content">
+              <div class="example-meta">
+                <p><strong>Target:</strong> [Target Word Example 3]</p>
+                <p><strong>Type:</strong> [HH / HA]</p>
+              </div>
+              <div class="example-visual">
+                 <img src="./static/images/examples/placeholder_example_3.png" alt="Sketch sequence for [Target Word Example 3]">
+              </div>
+              <div class="example-comms">
+                <p><strong>Key Guess:</strong> "[Key Guess Example 3]"</p>
+                <p><strong>Feedback Given:</strong> [Feedback Icon Example 3]</p>
+              </div>
+              <p class="caption">[Describe significance of Example 3]</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
+
+<!-- Authors Section -->
+<section id="authors" class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Authors</h2>
+      <div class="columns is-centered">
+          <!-- Author 1 Card -->
+          <div class="column is-one-third">
+              <div class="author-card">
+                <!-- Placeholder Image - Content to be added in Phase 4 -->
+                <img src="./static/images/placeholder_author1.png" alt="Headshot of Mohd Hozaifa Khan" class="author-headshot">
+                <h3 class="title is-4">Mohd Hozaifa Khan</h3>
+                <p class="affiliation">IIIT Hyderabad</p>
+                <div class="author-links">
+                    <!-- Placeholder Links - Content to be added in Phase 4 -->
+                    <a href="[Author 1 Website Link]" target="_blank" class="icon-link"><i class="fas fa-home"></i></a>
+                    <a href="[Author 1 Google Scholar Link]" target="_blank" class="icon-link"><i class="ai ai-google-scholar"></i></a>
+                    <a href="[Author 1 Twitter Link]" target="_blank" class="icon-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/mohd-hozaifa-khan-361b7814a/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Author 2 Card -->
+            <div class="column is-one-third">
+              <div class="author-card">
+                  <!-- Placeholder Image - Content to be added in Phase 4 -->
+                  <img src="./static/images/placeholder_author2.png" alt="Headshot of Ravi Kiran Sarvadevabhatla" class="author-headshot">
+                <h3 class="title is-4">Ravi Kiran Sarvadevabhatla</h3>
+                <p class="affiliation">IIIT Hyderabad</p>
+                 <div class="author-links">
+                    <!-- Placeholder Links - Content to be added in Phase 4 -->
+                  <a href="https://ravika.github.io" target="_blank" class="icon-link"><i class="fas fa-home"></i></a>
+                  <a href="[Author 2 GitHub Link]" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+                  <a href="[Author 2 Twitter Link]" target="_blank" class="icon-link"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.linkedin.com/in/ravi-kiran-s/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+              </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</section>
+
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
+
+<!-- Resources Section -->
+<section class="section is-light" id="resources">
   <div class="container is-max-desktop content">
-    <h2 class="title">Resources: Get Started</h2>
-
-    <div class="columns is-centered">
-      <div class="column has-text-centered">
-         <p>Explore these resources to learn more and get involved with Sketchtopia:</p>
-          <div class="publication-links">
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="[CODE-GITHUB-LINK]"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (GitHub)</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="[DATASET-LINK]"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Dataset Download (Request Access)</span>
-                  </a>
-              </span>
-            </div>
+    <h2 class="title is-3 has-text-centered">Resources</h2>
+      <div class="columns is-centered">
+       <div class="column has-text-centered">
              <br/>
              <h3 class="title is-4">Interactive Demo - Coming Soon!</h3>
-             <p> Stay tuned for a live demo to experience Sketchtopia in action.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Citation</h2>
-     <p>Please cite our CVPR 2025 paper if you use Sketchtopia in your research:</p>
-    <pre><code>@inproceedings{authors_sketchtopia_2025,
-  title={Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback},
-  author={Mohd Hozaifa Khan, Ravi Kiran Sarvadevabhatla},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2025}
-}</code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="[PAPER-PDF-LINK]">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="[GITHUB-PROFILE-LINK]" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-     <section class="section is-small">
-        <div class="container is-max-desktop content">
-            <h2 class="title is-3 has-text-centered">Meet the Team</h2>
-            <div class="columns is-centered">
-              <div class="column">
-                <div class="author-card">
-                   <img src="./static/images/authors/[AUTHOR-1-HEADSHOT.jpg]" alt="Author 1 Headshot" class="author-headshot">
-                   <h4 class="title is-4">Mohd Hozaifa Khan</h4>
-                   <p class="affiliation">IIIT Hyderabad</p>
-                   <div class="author-links">
-                      <a class="icon-link" href="https://www.linkedin.com/in/mohd-hozaifa-khan/">  <i class="fas fa-home"></i> </a>
-                      <a class="icon-link" href="https://scholar.google.com/citations?user=wc9VtQUAAAAJ">  <i class="ai ai-google-scholar"></i> </a>
-                      <a class="icon-link" href="https://twitter.com/hozaifakhan94">  <i class="fab fa-twitter"></i> </a>
-                   </div>
-                </div>
-              </div>
-               <div class="column">
-                <div class="author-card">
-                   <img src="./static/images/authors/[AUTHOR-2-HEADSHOT.jpg]" alt="Author 2 Headshot" class="author-headshot">
-                   <h4 class="title is-4">Ravi Kiran Sarvadevabhatla</h4>
-                   <p class="affiliation">IIIT Hyderabad</p>
-                    <div class="author-links">
-                      <a class="icon-link" href="https://cvit.iiit.ac.in/rkiran.html">  <i class="fas fa-home"></i> </a>
-                      <a class="icon-link" href="https://scholar.google.com/citations?user=l6A7v7kAAAAJ">  <i class="ai ai-google-scholar"></i> </a>
-                      <a class="icon-link" href="https://twitter.com/RaviKiranCVIT">  <i class="fab fa-twitter"></i> </a>
-                   </div>
-                </div>
-              </div>
+             <p> Stay tuned for a live demo where you can experience Sketchtopia agents interacting.</p>
+             <p>In the meantime, explore the <a href="[Link to Dataset Info/Access]">Dataset</a> and <a href="[Link to GitHub Code Repo]">Code</a>.</p>
+                <p><br/></p>
             </div>
         </div>
-    </section>
-    <div class="content has-text-centered">
-      <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+      </div>
+  </div>
+</section>
+
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
+
+<!-- Citation Section -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title has-text-centered">Citation</h2>
+    <div class="bibtex-container"> <!-- Wrapper for positioning context -->
+        <pre><code class="language-bibtex">@inproceedings{khan2025sketchtopia,
+  author    = {Mohd Hozaifa Khan and Ravi Kiran Sarvadevabhatla},
+  title     = {Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2025},
+  url       = {https://sketchtopia25.github.io/} <!-- Verify this URL -->
+}</code></pre>
+        <!-- Button positioning handled by CSS -->
+        <div>
+            <button class="button is-small copy-bibtex-button">
+                <span class="icon is-small">
+                    <i class="fas fa-copy"></i>
+                </span>
+                <span>Copy BibTeX</span>
+            </button>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+       <!-- Footer Logos -->
+       <div class="footer-logos columns is-centered is-vcentered">
+           <div class="column is-narrow">
+               <a href="[Link to CVPR 2025]" target="_blank">
+                   <img src="./static/images/logo_cvpr2025.jpg" alt="CVPR 2025 Logo" height="40">
+               </a>
+           </div>
+           <div class="column is-narrow">
+               <a href="https://cvit.iiit.ac.in/" target="_blank">
+                   <img src="./static/images/logo_cvit.jpeg" alt="CVIT Logo" height="40">
+               </a>
+           </div>
+           <div class="column is-narrow">
+               <a href="https://www.iiit.ac.in/" target="_blank">
+                   <img src="./static/images/logo_iiith.png" alt="IIIT Hyderabad Logo" height="40">
+               </a>
+           </div>
+       </div>
+
+      <!-- Footer Text -->
+      <div class="content has-text-centered">
+          <p>
+          <strong>Sketchtopia</strong> by <a href="[Actual Author 1 Link]">Mohd Hozaifa Khan</a> and <a href="[Actual Author 2 Link]">Ravi Kiran Sarvadevabhatla</a>, IIIT Hyderabad.
+          </p>
+          <p>
+            This website template is based on <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a> and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
           <p>
-            This means you are free to borrow the <a
-              href="https://github.com/your-github-repo/sketchtopia-website-repo">source code</a> of this website,
+            You are free to borrow the source code of this website (<a
+              href="[Link to Your Sketchtopia Website Repo]" target="_blank">GitHub</a>),
             we just ask that you link back to this page in the footer.
           </p>
-        </div>
       </div>
-  </div>
+    </div>
 </footer>
 
+
+<!-- Load Custom JS at the end -->
+<script src="./static/js/index.js"></script>
 </body>
 </html>
