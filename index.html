@@ -8,9 +8,15 @@
   <title>Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Add Permanent Marker ONLY for the specific brand word -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 
   <!-- Font Awesome (for icons) -->
+  <!-- Note: Using CDN link; local file ./static/js/fontawesome.all.min.js is also included later but CSS link is needed here -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
@@ -18,18 +24,21 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <!-- Bulma Carousel -->
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <!-- Bulma Slider (if you use it, keep this)-->
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- Bulma Slider (Commented out as not used) -->
+  <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./static/css/index.css">
 
   <link rel="icon" href="./static/images/favicon.svg"> <!-- Add a favicon if you have one -->
 
-   <!-- JavaScript Dependencies (jQuery removed) -->
-   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --> <!-- Removed jQuery -->
+   <!-- JavaScript Dependencies -->
+   <!-- jQuery removed -->
+   <!-- FontAwesome JS (Defer ensures it loads after HTML elements) -->
    <script defer src="./static/js/fontawesome.all.min.js"></script>
+   <!-- Bulma Carousel JS -->
    <script src="./static/js/bulma-carousel.min.js"></script>
-   <!-- <script src="./static/js/bulma-slider.min.js"></script> --> <!-- Commented out as per plan review -->
+   <!-- Bulma Slider JS (Commented out as not used) -->
+   <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
    <!-- Custom JS will be loaded at the end of body -->
 </head>
 <body>
@@ -37,15 +46,15 @@
 <!-- Navbar: IDs match section IDs -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"> <!-- Added data-target for vanilla JS -->
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div id="navbarBasicExample" class="navbar-menu"> <!-- Added ID for vanilla JS -->
+  <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://cvit.iiit.ac.in/" target="_blank"> <!-- Link to Lab/Uni -->
+      <a class="navbar-item" href="https://cvit.iiit.ac.in/" target="_blank">
         <span class="icon">
             <i class="fas fa-home"></i>
         </span>
@@ -65,79 +74,8 @@
 </nav>
 
 <!-- Hero Section (Text Content) -->
-<!-- <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title publication-title">Sketchtopia: Advancing Multimodal AI with Asynchronous Sketch Communication</h1>
-           <div class="subtitle is-4">
-              A new benchmark dataset and foundational agents for exploring human-AI collaboration through drawing and language.
-            </div>
-          <div class="is-size-5 publication-authors"> -->
-            <!-- Author Links - Replace placeholders -->
-            <!-- <span class="author-block">
-              <a href="[Actual Author 1 Link]" target="_blank">Mohd Hozaifa Khan</a>,</span>
-            <span class="author-block">
-              <a href="[Actual Author 2 Link]" target="_blank">Ravi Kiran Sarvadevabhatla</a>
-            </span>
-            </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">IIIT Hyderabad</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links"> -->
-              <!-- PDF Link - Replace placeholder -->
-              <!-- <span class="link-block">
-                <a href="[Path to Paper PDF]" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper (CVPR 2025)</span>
-                </a>
-              </span> -->
-              <!-- ArXiv Link - Replace placeholder -->
-              <!-- <span class="link-block">
-                <a href="[Link to ArXiv Paper]" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span> -->
-              <!-- Code Link - Replace placeholder -->
-              <!-- <span class="link-block">
-                <a href="[Link to GitHub Code Repo]" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span> -->
-              <!-- Dataset Link - Replace placeholder -->
-              <!-- <span class="link-block">
-                <a href="[Link to Dataset Info/Access]" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"> -->
-                      <!-- <i class="fas fa-database"></i> Changed icon for consistency -->
-                  <!-- </span>
-                  <span>Dataset</span>
-                  </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <section class="hero">
-  <!-- ADDED: Corner Logo -->
+  <!-- Corner Logo -->
   <a href="https://cvpr.thecvf.com" class="hero-corner-logo cvpr-logo" target="_blank">
     <img src="./static/images/logo_cvpr2025.jpg" alt="CVPR 2025 Logo">
   </a>
@@ -145,33 +83,30 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title publication-title">Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback</h1>
-           <div class="subtitle is-4">
-              A new benchmark dataset and foundational agents for exploring human-AI collaboration through drawing and language.
-            </div>
+          <!-- UPDATED H1 Title with Span -->
+          <h1 class="title publication-title">
+            <span class="sketchtopia-brand-font">Sketchtopia</span>: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback
+          </h1>
 
-          <!-- MODIFIED: Author listing changed to inline -->
+          <!-- Author listing inline -->
           <div class="is-size-5 publication-authors publication-authors-inline">
             <span class="author-block"><a href="https://www.linkedin.com/in/mohd-hozaifa-khan-361b7814a/" target="_blank">Mohd Hozaifa Khan</a>,</span>
             <span class="author-block"><a href="https://ravika.github.io" target="_blank">Ravi Kiran Sarvadevabhatla</a></span>
-            <!-- Add more authors inline if needed, separated by commas -->
           </div>
 
-          <!-- MODIFIED: Affiliation moved below inline authors -->
+          <!-- Affiliation below inline authors -->
           <div class="is-size-6 publication-affiliation">
-            <!-- <span class="author-block">CVIT</span> -->
             <span class="author-block">
               <a href="https://www.iiit.ac.in/" target="_blank">IIIT Hyderabad</a>
             </span>
-            <!-- Add other affiliations if needed -->
           </div>
 
-          <!-- ADDED: Conference Information -->
+          <!-- Conference Information -->
             <div class="is-size-6 conference-info">
             <a href="https://cvpr2025.thecvf.com/" target="_blank">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025</a>
             </div>
 
-          <!-- Publication Links remain the same -->
+          <!-- Publication Links -->
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link -->
@@ -179,7 +114,7 @@
                 <a href="[Path to Paper PDF]" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper</span> <!-- Shortened text -->
+                  <span>Paper</span>
                 </a>
               </span>
               <!-- ArXiv Link -->
@@ -206,8 +141,11 @@
                   <span>Dataset</span>
                   </a>
               </span>
-              <!-- Optional: Add Supplementary/Checkpoints buttons if applicable -->
             </div>
+          </div>
+            <!-- MOVED SUBTITLE HERE -->
+            <div class="subtitle is-4">
+              A new benchmark dataset and foundational agents for exploring human-AI collaboration through drawing and language.
           </div>
         </div>
       </div>
@@ -215,11 +153,11 @@
   </div>
 </section>
 
-<!-- Hero Visual Carousel Section (NEW) -->
+<!-- Hero Visual Carousel Section -->
 <section class="section hero-carousel-section" id="hero-visuals">
-    <div class="container is-max-widescreen"> <!-- Wider container for visual -->
+    <div class="container is-max-widescreen">
         <div id="hero-carousel" class="carousel">
-            <!-- Placeholder Slides - Replace with actual visual examples -->
+            <!-- Placeholder Slides - Content to be added in Phase 4 -->
             <div class="item item-visual">
                 <img src="./static/images/placeholder-hero-1.png" alt="Sketchtopia Teaser Visual 1 - Example Sketch Interaction">
             </div>
@@ -235,16 +173,15 @@
 
 <!-- Abstract Section -->
 <section class="section" id="abstract">
-   <div class="hero-body">
+   <div class="hero-body"> <!-- Consider if hero-body padding is needed or just container -->
         <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
+            <div class="columns is-centered"> <!-- Removed has-text-centered -->
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">Abstract</h2>
-                    <!-- Removed has-text-justified, CSS will handle alignment (left recommended) -->
-                    <div class="content">
+                    <h2 class="title is-3 has-text-centered">Abstract</h2>
+                    <div class="content"> <!-- Text alignment handled by CSS -->
                         <p>
-                          We introduce Sketchtopia, a large-scale dataset and AI framework designed to explore goal-driven, multimodal communication through asynchronous interactions in a Pictionary-inspired setup. Sketchtopia captures natural human interactions, including freehand sketches, open-ended guesses, and iconic feedback gestures, showcasing the complex dynamics of cooperative communication under constraints. It features over 20K gameplay sessions from 916 players, capturing 263K sketches, 10K erases, 56K guesses and 19.4K iconic feedbacks. 
-                        </p>  
+                          We introduce Sketchtopia, a large-scale dataset and AI framework designed to explore goal-driven, multimodal communication through asynchronous interactions in a Pictionary-inspired setup. Sketchtopia captures natural human interactions, including freehand sketches, open-ended guesses, and iconic feedback gestures, showcasing the complex dynamics of cooperative communication under constraints. It features over 20K gameplay sessions from 916 players, capturing 263K sketches, 10K erases, 56K guesses and 19.4K iconic feedbacks.
+                        </p>
                         <p>
                           We introduce multimodal foundational agents with capabilities for generative sketching, guess generation and asynchronous communication. Our dataset also includes 800 human-agent sessions for benchmarking the agents. We introduce novel metrics to characterize collaborative success, responsiveness to feedback and inter-agent asynchronous communication. Sketchtopia pushes the boundaries of multimodal AI, establishing a new benchmark for studying asynchronous, goal-oriented interactions between humans and AI agents.
                         </p>
@@ -255,9 +192,10 @@
    </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
-<!-- Key Contributions Section (NEW) -->
+<!-- Key Contributions Section -->
 <section class="section key-contributions" id="contributions">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Key Contributions</h2>
@@ -281,7 +219,8 @@
   </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
 <!-- Dataset Highlights Section -->
 <section class="section is-light is-small" id="dataset">
@@ -353,7 +292,7 @@
         <div class="column is-4 has-text-centered">
            <div class="stat-card">
                 <div class="stat-value">
-                  <h2><span class="icon"><i class="fas fa-handshake"></i></span> 800</h2> <!-- Use exact number if available -->
+                  <h2><span class="icon"><i class="fas fa-handshake"></i></span> 800</h2>
                 </div>
                 <div class="stat-label">Human-Agent Sessions</div>
                   <div class="stat-description">
@@ -366,24 +305,21 @@
   </div>
 </section>
 
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
-<hr class="divider">
-
-<!-- Agents Section (Restructured) -->
+<!-- Agents Section -->
 <section class="section" id ="agents">
-  <!-- <div class="container is-max-desktop"> -->
   <div class="container is-max-widescreen">
       <h2 class="title is-3 has-text-centered">Sketchtopia Agents</h2>
-
       <!-- DRAWBOT -->
-      <h3 class="title is-4">DRAWBOT: The Generative Sketcher</h3>
+      <h3 class="title is-4"><span class="agent-brand-font">DRAWBOT</span>: The Generative Sketcher</h3>
       <div class="columns">
           <!-- Column 1: Text Content -->
           <div class="column is-half">
               <p>
                   DRAWBOT brings concepts to life through asynchronous sketching, leveraging state-of-the-art generative models fine-tuned for iterative refinement based on communication context.
               </p>
-              <!-- Removed has-text-justified -->
               <div class="content">
                   <ul>
                       <li>Generates sketches from target concepts, adapting to canvas state.</li>
@@ -396,7 +332,7 @@
           <!-- Column 2: Visual Content (Carousel) -->
           <div class="column is-half">
                <div id="drawbot-carousel" class="carousel results-carousel">
-                    <!-- Placeholder Slides - Replace with actual images -->
+                    <!-- Placeholder Slides - Content to be added in Phase 4 -->
                     <div class="item item-sketch">
                       <img src="./static/images/placeholder_drawbot_arch1.png" alt="DRAWBOT Architecture Overview Diagram">
                       <p class="caption">DRAWBOT Architecture: Key modules for asynchronous drawing.</p>
@@ -410,14 +346,13 @@
       </div>
 
       <!-- GUESSBOT -->
-      <h3 class="title is-4">GUESSBOT: The Intelligent Guesser</h3>
+      <h3 class="title is-4"><span class="agent-brand-font">GUESSBOT</span>: The Intelligent Guesser</h3>
        <div class="columns">
            <!-- Column 1: Text Content -->
            <div class="column is-half">
                <p>
                    GUESSBOT interprets evolving sketches and communication cues to make intelligent guesses, using a retrieval-based framework informed by historical interaction data.
                </p>
-               <!-- Removed has-text-justified -->
                <div class="content">
                    <ul>
                        <li>Analyzes the current sketch canvas content using vision models.</li>
@@ -430,8 +365,8 @@
            <!-- Column 2: Visual Content (Carousel) -->
            <div class="column is-half">
               <div id="guessbot-carousel" class="carousel results-carousel">
-                  <!-- Placeholder Slides - Replace with actual images -->
-                  <div class="item item-sketch"> <!-- Reusing item-sketch class for consistency, adjust CSS if needed -->
+                  <!-- Placeholder Slides - Content to be added in Phase 4 -->
+                  <div class="item item-sketch">
                       <img src="./static/images/placeholder_guessbot_arch1.png" alt="GUESSBOT Architecture Overview Diagram">
                       <p class="caption">GUESSBOT Architecture: Framework for sketch interpretation and guessing.</p>
                   </div>
@@ -445,9 +380,10 @@
   </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
-<!-- Snippet: Metrics Section - UPDATE ICONS -->
+<!-- Metrics Section -->
 <section class="section is-light is-small" id="metrics">
   <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Evaluating Asynchronous Collaboration</h2>
@@ -455,8 +391,8 @@
           <!-- Metric 1: AAO -->
           <div class="column is-4">
              <div class="metric-item has-text-centered">
-                <!-- UPDATED ICON -->
-                <span class="icon is-large has-text-accent"><i class="fas fa-layer-group"></i></span>
+                <!-- Icon updated in original code, class indicates semantic meaning -->
+                <span class="icon is-large"><i class="fas fa-layer-group"></i></span>
                 <h4 class="title is-5">AAO</h4>
                 <p class="metric-subtitle">Asynchronous Action Overlap</p>
                 <p class="metric-description">Measures concurrent actions between agents. Higher AAO suggests more natural, human-like interaction dynamics.</p>
@@ -465,8 +401,8 @@
           <!-- Metric 2: FRS -->
           <div class="column is-4">
              <div class="metric-item has-text-centered">
-                 <!-- UPDATED ICON -->
-                <span class="icon is-large has-text-accent"><i class="fas fa-message-check"></i></span>
+                 <!-- Icon updated in original code -->
+                <span class="icon is-large"><i class="fas fa-message-check"></i></span> <!-- Corrected Icon -->
                  <h4 class="title is-5">FRS</h4>
                 <p class="metric-subtitle">Feedback Responsiveness Score</p>
                 <p class="metric-description">Quantifies how effectively agents adapt to feedback (👍👎❓), crucial for collaborative goal achievement.</p>
@@ -475,8 +411,8 @@
           <!-- Metric 3: MATS -->
           <div class="column is-4">
              <div class="metric-item has-text-centered">
-                 <!-- UPDATED ICON -->
-                <span class="icon is-large has-text-accent"><i class="fas fa-stopwatch"></i></span> <!-- Alt: fa-timer, fa-chart-simple -->
+                 <!-- Icon updated in original code -->
+                <span class="icon is-large"><i class="fas fa-stopwatch"></i></span>
                 <h4 class="title is-5">MATS</h4>
                 <p class="metric-subtitle">Multimodal Action Timing Similarity</p>
                 <p class="metric-description">Compares agent action timing patterns with human interactions to assess the naturalness of pacing.</p>
@@ -486,15 +422,16 @@
   </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
-<!-- Examples Section (Restructured with Carousel) -->
+<!-- Examples Section -->
 <section class="section" id ="examples">
-  <div class="container is-max-widescreen"> <!-- Wider container for examples -->
+  <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-centered">Qualitative Insights: Example Sessions</h2>
 
     <div id="examples-carousel" class="carousel">
-        <!-- Placeholder Example Slide 1 -->
+        <!-- Placeholder Example Slide 1 - Content to be added in Phase 4 -->
         <div class="item item-example">
            <div class="example-slide-content">
               <div class="example-meta">
@@ -508,7 +445,7 @@
                 <p><strong>Key Guess:</strong> "[Key Guess Example 1]"</p>
                 <p><strong>Feedback Given:</strong> [Feedback Icon Example 1]</p>
               </div>
-              <p class="caption">[Describe significance of Example 1 - e.g., rapid success, handling ambiguity, feedback use]</p>
+              <p class="caption">[Describe significance of Example 1]</p>
             </div>
         </div>
         <!-- Placeholder Example Slide 2 -->
@@ -519,16 +456,16 @@
                 <p><strong>Type:</strong> [HH / HA]</p>
               </div>
               <div class="example-visual">
-                 <img src="./static/images/examples/placeholder_example_2.gif" alt="Animated sketch sequence for [Target Word Example 2]"> <!-- Example using GIF -->
+                 <img src="./static/images/examples/placeholder_example_2.gif" alt="Animated sketch sequence for [Target Word Example 2]">
               </div>
               <div class="example-comms">
                 <p><strong>Key Guess:</strong> "[Key Guess Example 2]"</p>
                 <p><strong>Feedback Given:</strong> [Feedback Icon Example 2]</p>
               </div>
-              <p class="caption">[Describe significance of Example 2 - e.g., agent challenge, complex concept visualization]</p>
+              <p class="caption">[Describe significance of Example 2]</p>
             </div>
         </div>
-        <!-- Add more placeholder example slides (3-7 recommended) -->
+        <!-- Placeholder Example Slide 3 -->
         <div class="item item-example">
            <div class="example-slide-content">
               <div class="example-meta">
@@ -549,7 +486,8 @@
   </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
 <!-- Authors Section -->
 <section id="authors" class="section">
@@ -559,14 +497,13 @@
           <!-- Author 1 Card -->
           <div class="column is-one-third">
               <div class="author-card">
-                <!-- Placeholder Image - Replace path -->
+                <!-- Placeholder Image - Content to be added in Phase 4 -->
                 <img src="./static/images/placeholder_author1.png" alt="Headshot of Mohd Hozaifa Khan" class="author-headshot">
                 <h3 class="title is-4">Mohd Hozaifa Khan</h3>
                 <p class="affiliation">IIIT Hyderabad</p>
                 <div class="author-links">
-                    <!-- Placeholder Links - Replace -->
+                    <!-- Placeholder Links - Content to be added in Phase 4 -->
                     <a href="[Author 1 Website Link]" target="_blank" class="icon-link"><i class="fas fa-home"></i></a>
-                    <!-- <a href="[Author 1 GitHub Link]" target="_blank" class="icon-link"><i class="fab fa-github"></i></a> -->
                     <a href="[Author 1 Google Scholar Link]" target="_blank" class="icon-link"><i class="ai ai-google-scholar"></i></a>
                     <a href="[Author 1 Twitter Link]" target="_blank" class="icon-link"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.linkedin.com/in/mohd-hozaifa-khan-361b7814a/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
@@ -576,12 +513,12 @@
             <!-- Author 2 Card -->
             <div class="column is-one-third">
               <div class="author-card">
-                  <!-- Placeholder Image - Replace path -->
+                  <!-- Placeholder Image - Content to be added in Phase 4 -->
                   <img src="./static/images/placeholder_author2.png" alt="Headshot of Ravi Kiran Sarvadevabhatla" class="author-headshot">
                 <h3 class="title is-4">Ravi Kiran Sarvadevabhatla</h3>
                 <p class="affiliation">IIIT Hyderabad</p>
                  <div class="author-links">
-                    <!-- Placeholder Links - Replace -->
+                    <!-- Placeholder Links - Content to be added in Phase 4 -->
                   <a href="https://ravika.github.io" target="_blank" class="icon-link"><i class="fas fa-home"></i></a>
                   <a href="[Author 2 GitHub Link]" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
                   <a href="[Author 2 Twitter Link]" target="_blank" class="icon-link"><i class="fab fa-twitter"></i></a>
@@ -593,7 +530,8 @@
     </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
 <!-- Resources Section -->
 <section class="section is-light" id="resources">
@@ -602,7 +540,6 @@
       <div class="columns is-centered">
        <div class="column has-text-centered">
              <br/>
-             <!-- Update this section when demo/other resources are available -->
              <h3 class="title is-4">Interactive Demo - Coming Soon!</h3>
              <p> Stay tuned for a live demo where you can experience Sketchtopia agents interacting.</p>
              <p>In the meantime, explore the <a href="[Link to Dataset Info/Access]">Dataset</a> and <a href="[Link to GitHub Code Repo]">Code</a>.</p>
@@ -613,15 +550,14 @@
   </div>
 </section>
 
-<hr class="divider">
+<!-- Divider (Styling handled by CSS) -->
+<!-- <hr class="divider"> -->
 
 <!-- Citation Section -->
-<!-- Snippet: Citation Section - ADD WRAPPER, REMOVE CENTERING -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title has-text-centered">Citation</h2>
-    <!-- ADDED WRAPPER DIV -->
-    <div class="bibtex-container">
+    <div class="bibtex-container"> <!-- Wrapper for positioning context -->
         <pre><code class="language-bibtex">@inproceedings{khan2025sketchtopia,
   author    = {Mohd Hozaifa Khan and Ravi Kiran Sarvadevabhatla},
   title     = {Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback},
@@ -629,7 +565,7 @@
   year      = {2025},
   url       = {https://sketchtopia25.github.io/} <!-- Verify this URL -->
 }</code></pre>
-        <!-- REMOVED has-text-centered class from this div -->
+        <!-- Button positioning handled by CSS -->
         <div>
             <button class="button is-small copy-bibtex-button">
                 <span class="icon is-small">
@@ -638,35 +574,16 @@
                 <span>Copy BibTeX</span>
             </button>
         </div>
-    </div> <!-- END WRAPPER DIV -->
+    </div>
   </div>
 </section>
 
 
-<!-- <footer class="footer">
-  <div class="container">
-      <div class="content has-text-centered">
-        <p>
-        <strong>Sketchtopia</strong> by <a href="[Actual Author 1 Link]">Mohd Hozaifa Khan</a> and <a href="[Actual Author 2 Link]">Ravi Kiran Sarvadevabhatla</a>, IIIT Hyderabad.
-        </p>
-        <p>
-          This website template is based on <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a> and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-          Commons Attribution-ShareAlike 4.0 International License</a>.
-        </p>
-        <p>
-          You are free to borrow the source code of this website (<a
-            href="[Link to Your Sketchtopia Website Repo]" target="_blank">GitHub</a>),
-          we just ask that you link back to this page in the footer.
-        </p>
-      </div>
-    </div>
-</footer> -->
-
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
-      <!-- ADDED: Footer Logos -->
+       <!-- Footer Logos -->
        <div class="footer-logos columns is-centered is-vcentered">
-           <!-- Replace with actual logos and paths -->
            <div class="column is-narrow">
                <a href="[Link to CVPR 2025]" target="_blank">
                    <img src="./static/images/logo_cvpr2025.jpg" alt="CVPR 2025 Logo" height="40">
@@ -684,9 +601,8 @@
            </div>
        </div>
 
-      <!-- MODIFIED: Footer Text -->
+      <!-- Footer Text -->
       <div class="content has-text-centered">
-        <div class="content has-text-centered">
           <p>
           <strong>Sketchtopia</strong> by <a href="[Actual Author 1 Link]">Mohd Hozaifa Khan</a> and <a href="[Actual Author 2 Link]">Ravi Kiran Sarvadevabhatla</a>, IIIT Hyderabad.
           </p>
@@ -699,7 +615,6 @@
               href="[Link to Your Sketchtopia Website Repo]" target="_blank">GitHub</a>),
             we just ask that you link back to this page in the footer.
           </p>
-        </div>
       </div>
     </div>
 </footer>
