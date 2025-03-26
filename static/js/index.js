@@ -1,7 +1,6 @@
 // static/js/index.js
 
-// Helper to prevent errors if console methods are unavailable (though unlikely needed now)
-window.HELP_IMPROVE_VIDEOJS = false;
+window.HELP_IMPROVE_VIDEOJS = true;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Bulma Carousel Initializations ---
   // Note: Ensure bulma-carousel.min.js is loaded *before* this script.
   // Assumes Bulma Carousel works without jQuery OR jQuery is included if needed by the plugin.
+  // <script src="static/js/bulma-carousel.min.js"></script>
 
   // Hero Carousel
   const heroCarouselElement = document.querySelector('#hero-carousel');
