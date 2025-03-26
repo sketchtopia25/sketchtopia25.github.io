@@ -83,9 +83,34 @@ section#dataset {
 }
 
 /* --- Hero Section --- */
-.hero {
+/* .hero {
     background-color: var(--light-background);
     padding: 4rem 1.5rem 2rem 1.5rem;
+} */
+
+section.hero {
+    position: relative; /* ADDED: Establish positioning context for the corner logo */
+    background-color: var(--light-background);
+    padding: 0rem 1.5rem 2rem 1.5rem; /* Keep existing padding */
+    /* NOTE: Corner logo 'top' and 'right' values should relate to this padding */
+}
+
+/* ADDED: Corner Logo specific styles */
+.hero-corner-logo {
+    position: absolute;
+    top: 1rem;      /* Adjust to match section padding-top */
+    z-index: 10;      /* Ensure it sits above other content if needed */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.hero-corner-logo:hover {
+    opacity: 1.0;
+}
+.hero-corner-logo.cvpr-logo {
+    right: 1.5rem;     /* Adjust to match section padding-right */
+}
+.hero-corner-logo img {
+    max-height: 50px; /* Adjust size as needed for corner */
 }
 
 .publication-title {
@@ -272,8 +297,18 @@ section#dataset {
     height: 100%;
 }
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.03);
     box-shadow: var(--card-shadow-hover);
+    border-color: var(--primary-color);
+    /* border-color: var(--accent-color); */
+    /* background-color: var(--secondary-color); */
+}
+/* Ensure icon has transition */
+.stat-card .stat-value .icon {
+    transition: transform 0.3s ease-in-out;
+}
+.stat-card:hover .stat-value .icon {
+   transform: scale(1.05); /* Scale icon */
 }
 .stat-card .stat-value {
     font-size: 2.5rem;
@@ -543,9 +578,9 @@ section#dataset {
     padding: 0 1rem; /* Spacing between logos */
 }
 .footer-logos img {
-    max-height: 45px; /* Control logo height */
-    opacity: 0.75; /* Make logos slightly subtle */
-    transition: opacity 0.3s ease-in-out;
+    max-height: 65px; /* Control logo height */
+    opacity: 0.70; /* Make logos slightly subtle */
+    transition: opacity 0.2s ease-in-out;
 }
 .footer-logos img:hover {
     opacity: 1.0; /* Full opacity on hover */
