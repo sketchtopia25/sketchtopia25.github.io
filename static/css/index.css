@@ -6,338 +6,628 @@
 
 /* --- CSS Variables (Custom Properties) --- */
 :root {
-    --primary-color: #0077b6;   /*  A vibrant, yet trustworthy blue */
-    --secondary-color: #e0f2fe; /*  A very light blue-ish gray (paper-like) */
-    --text-color: #333333;      /*  Dark gray, slightly warmer than pure black */
-    --light-background: #ffffff;  /*  Pure white */
-    --dark-background: #f8f9fa; /*  Kept the same, provides good contrast */
-    --accent-color: #ff8c00;      /*  Vibrant orange, for calls to action, links */
-    --heading-font: 'Permanent Marker', cursive; /* Keep this */
-    --body-font: 'Roboto', sans-serif;       /* Keep this */
-    --link-color: #0056b3;     /* Darker blue for better accessibility */
+    --primary-color: #0077b6;   /* Trustworthy blue */
+    --secondary-color: #e0f2fe; /* Very light blue-ish gray */
+    --tertiary-color: #3AAA35;  /* Added Green for differentiation */
+    --text-color: #333333;      /* Dark gray */
+    --text-color-light: #555555; /* Lighter gray for less emphasis */
+    --light-background: #ffffff;  /* Pure white */
+    --dark-background: #f8f9fa;   /* Off-white/Light gray */
+    --accent-color: #ff8c00;      /* Vibrant orange for CTAs and highlights */
+    --heading-font: 'Permanent Marker', cursive;
+    --body-font: 'Roboto', sans-serif;
+    --link-color: #0056b3;     /* Darker blue for accessibility */
+    --border-color: #dee2e6;   /* Light border color */
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    --card-shadow-hover: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-/* --- General Styles --- */
+/* --- General & Global Styles --- */
 body {
     font-family: var(--body-font);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-background);
-    /* Optional: subtle background pattern (if you have one) */
-    /* background-image: url('../images/subtle_paper.png');
-    background-size: cover; */
 }
 
-.hero {
-    background-color: var(--light-background);
-    padding: 2rem 0; /* Less vertical padding */
+/* Smooth transitions for hover effects */
+a, .button, .stat-card, .author-card, .metric-item, .key-contributions .column {
+    transition: all 0.3s ease-in-out;
 }
 
-.publication-title {
-    font-family: var(--heading-font);
-    font-size: 3rem; /* Increased title size */
-    font-weight: 600; /*Changed the font weight*/
-    letter-spacing: -0.03em;
-    margin-bottom: 1rem;
-    color: var(--text-color); /* Darker title color */
-}
-
-/*Increased author font size*/
-.publication-authors {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    color: var(--secondary-color); /* Muted author text color */
-}
-
-.publication-authors a {
-    color: var(--link-color); /* Teal for links */
+a {
+    color: var(--link-color);
     text-decoration: none;
 }
 
-.publication-authors a:hover {
+a:hover {
+    color: var(--accent-color); /* Use accent color on hover */
     text-decoration: underline;
 }
 
-.publication-links .button {
-    margin: 0.5rem; /* Spacing around buttons */
+/* Section Padding */
+section.section {
+    padding: 2rem 1.5rem; /* Default section padding */
+}
+section.is-small {
+    padding: 1.5rem 1.5rem;
 }
 
-/* --- Key Contributions --- */
-.key-contributions {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+/* Alternating Backgrounds for Sections */
+/* section#abstract, */
+section#abstract{
+    padding-top: 1.5rem; /* MODIFIED: Reduced padding */
+    padding-bottom: 1.5rem; /* MODIFIED: Reduced padding */
+    background-color: var(--dark-background);
 }
-
-/* Style for cards */
-.key-contributions .column {
-    padding: 1.5rem; /* Add padding */
-    border: 1px solid #dee2e6; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
-}
-
-.key-contributions .column:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* More pronounced shadow on hover */
-}
-/*Different border for the novel dataset card*/
-.key-contributions .column:nth-child(1){
-    border-left: 5px solid var(--accent-color);
-}
-
-.key-contributions .column h2 {
-    font-family: var(--heading-font);
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-.key-contributions .column h2 .icon {
-    margin-right: 0.5em;
-    color: var(--accent-color);
-}
-
-
-/* --- Section Titles --- */
-.section .title.is-3 {
-    font-family: var(--heading-font);
-    font-size: 2.25rem; /* Larger section titles */
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 2rem; /* Added margin below section titles */
-}
-
-/* --- Section Body Content --- */
-.section.is-light.is-small .hero-body {
-    padding-top: 1.5rem; /* Adjusted section padding */
-    padding-bottom: 1.5rem;
-}
-
-/*Added margin for paragraphs in light and small sections*/
-.section.is-light.is-small .content.has-text-justified p {
-    margin-bottom: 0.8rem;
-    line-height: 1.7;
-}
-/*Justify text*/
-.content.has-text-justified {
-    text-align: justify; /* Justify abstract text */
-}
-/* --- Alternating Backgrounds for Sections --- */
-section {
-  background-color: var(--light-background); /* Default background */
-}
-
-/* Darker background for specific sections */
-section#abstract,
 section#metrics,
 section#resources {
   background-color: var(--dark-background);
 }
+section.key-contributions {
+    background-color: var(--light-background); /* Give contributions a background */
+    padding-top: 2.5rem; /* MODIFIED: Reduced padding */
+    padding-bottom: 2.5rem; /* MODIFIED: Reduced padding */
+}
+section#dataset {
+     background-color: var(--dark-background);
+}
 
+/* --- Navbar --- */
+.navbar {
+    border-bottom: 1px solid var(--border-color);
+}
+.navbar-item.is-active { /* Style for active navbar link */
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background-color: var(--light-background);
+    padding: 4rem 1.5rem 2rem 1.5rem;
+}
+
+.publication-title {
+    font-family: var(--heading-font);
+    font-size: 3rem;
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* .publication-authors {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+}
+
+.publication-authors a {
+    color: var(--link-color);
+    font-weight: 500;
+} */
+
+.publication-links .button {
+    margin: 0.3rem;
+    font-weight: 500;
+}
+.publication-links .button.is-dark {
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--light-background);
+}
+.publication-links .button.is-dark:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--light-background);
+    transform: translateY(-2px);
+}
+
+.publication-authors-inline {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem; /* Reduced margin */
+    color: var(--text-color-light);
+    /* Ensure spans display inline */
+}
+.publication-authors-inline .author-block {
+    display: inline; /* Make sure spans are inline */
+}
+.publication-authors-inline a {
+    color: var(--link-color);
+    font-weight: 500;
+}
+.publication-authors-inline a:hover {
+    color: var(--accent-color);
+}
+
+/* ADDED: Affiliation below inline authors */
+.publication-affiliation {
+    font-size: 1rem; /* Slightly smaller than authors */
+    color: var(--text-color-light);
+    margin-bottom: 1rem; /* Space before conference */
+}
+
+/* ADDED: Conference Info styling */
+.conference-info {
+    font-size: 1rem; /* Same size as affiliation or slightly larger */
+    font-weight: 500; /* Make it slightly prominent */
+    color: var(--text-color); /* Darker text */
+    margin-bottom: 2rem; /* Space before buttons */
+}
+
+/* Optional: Shorten button text */
+/* .publication-links .button span:not(.icon) { */
+    /* display: none; Hide text */
+/* } */
+
+
+/* --- Hero Visual Carousel --- */
+.hero-carousel-section {
+    padding-top: 0;
+    padding-bottom: 1rem;
+}
+#hero-carousel .item {
+   /* ADDED: Ensure Bulma Carousel basic layout applies */
+   display: none; /* Hidden by default */
+   width: 100%;
+   backface-visibility: hidden; /* Helps with rendering */
+   position: relative; /* Needed for some transitions */
+}
+#hero-carousel .item.is-active {
+   display: block; /* Shown by JS */
+}
+#hero-carousel .item-visual img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Abstract --- */
+#abstract .content p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* --- Divider --- */
+.divider {
+    border: none;
+    border-top: 1px dashed #bbb;
+    margin: 2rem auto;
+    width: 80%;
+    opacity: 0.6;
+}
+
+/* --- Key Contributions --- */
+.key-contributions .column {
+    padding: 1rem; /* MODIFIED: Reduced padding */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    background-color: var(--light-background);
+}
+.key-contributions .column:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+/* ADDED: Distinct left borders */
+.key-contributions .column:nth-child(1) { /* Dataset */
+    border-left: 5px solid var(--accent-color); /* Orange */
+}
+.key-contributions .column:nth-child(2) { /* Agents */
+    border-left: 5px solid var(--primary-color); /* Blue */
+}
+.key-contributions .column:nth-child(3) { /* Metrics */
+    border-left: 5px solid var(--tertiary-color); /* Green */
+}
+
+.key-contributions .column h2 {
+    font-family: var(--heading-font);
+    font-size: 1.5rem; /* MODIFIED: Reduced font size */
+    margin-bottom: 0.75rem; /* MODIFIED: Reduced margin */
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+.key-contributions .column h2 .icon {
+    margin-right: 0.75em;
+    color: var(--accent-color); /* Keep icon color consistent or vary with border */
+    /* Optional: Vary icon color */
+    /* .key-contributions .column:nth-child(1) h2 .icon { color: var(--accent-color); } */
+    /* .key-contributions .column:nth-child(2) h2 .icon { color: var(--primary-color); } */
+    /* .key-contributions .column:nth-child(3) h2 .icon { color: var(--tertiary-color); } */
+}
+
+/* --- Section Titles --- */
+.section .title.is-3 {
+    font-family: var(--heading-font);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+}
+.section .title.is-4 { /* Sub-headings like Agent names */
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
 
 /* --- Dataset Stats --- */
-.dataset-stats {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-/*Two row layout*/
-.dataset-stats .columns.is-centered {
-   /* Already has justify-content: center; */
-}
-.dataset-stats .column {
-     width: 30%; /* Full width on smaller screens */
-     /* Other styles for columns */
-}
-/*Adjust for smaller devices*/
- @media screen and (max-width: 768px) {
-  .dataset-stats .column {
-     width: 100%;
-    }
-}
-/* Style for card-like appearance */
 .stat-card {
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    margin-bottom: 1rem; /* Add some bottom margin */
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    background-color: var(--light-background);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center;
+    text-align: center;
+    height: 100%;
 }
-
 .stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-  }
-  
-  .stat-card .icon {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-      color: var(--accent-color);
-      transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition */
-  }
-  
-  .stat-card:hover .icon {
-    transform: scale(1.1); /* Slightly enlarge icon on hover */
+    box-shadow: var(--card-shadow-hover);
+}
+.stat-card .stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
     color: var(--primary-color);
-  }
-
-.stat-card .stat-value{
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stat-card .stat-value h2 {
+     margin-bottom: 0;
      display: flex;
      align-items: center;
 }
-.stat-card .stat-value h2{
-     margin-bottom: 0; /* Remove the bottom margin from the h2 inside stat-value */
-
+.stat-card .stat-value .icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+      color: var(--accent-color);
 }
-
-.stat-card .stat-value {
-    font-size: 2.5rem; /* Larger font size for the number */
-    font-weight: bold;
-    color: var(--primary-color); /* Use primary color */
-    margin-bottom: 0.5rem;
-}
-
 .stat-card .stat-label {
     font-size: 1rem;
-    color: #6c757d; /* Muted text color */
+    color: var(--text-color-light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.stat-card .stat-description {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    line-height: 1.4;
 }
 
-/* --- Image Carousel --- */
-.hero-body .carousel {
-    position: relative; /* Ensure proper positioning context */
-    overflow: hidden;
+/* --- Agents Section --- */
+#agents .columns {
     margin-bottom: 2rem;
-     /* Set a maximum height, adjust as needed */
+}
+/* ADDED: Fix for image overlap */
+#agents .columns .column.is-half:nth-child(2) { /* Target the right (visual) column */
+    overflow: hidden; /* Clip content breaking out */
+}
+#drawbot-carousel, #guessbot-carousel {
+    width: 100%; /* Ensure carousel fills column but doesn't exceed */
+    max-width: 100%;
+}
+#agents .column.is-half .content ul {
+    list-style: disc;
+    margin-left: 1.5em;
+    padding-left: 0;
+    color: var(--text-color-light);
+}
+#agents .column.is-half .content li {
+    margin-bottom: 0.5rem;
+}
+#agents .results-carousel .item img {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 100%; /* Ensure image respects container */
+    height: auto;
+    display: block; /* Prevents potential bottom spacing */
+    margin: 0 auto; /* Center if smaller than container */
+}
+#agents .results-carousel .item .caption {
+    font-size: 0.85rem;
+    color: var(--text-color-light);
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
-/* Style for individual carousel items and images */
-.carousel-item.item-sketch {
-    display: flex; /*Make it a flex container*/
-    justify-content: center; /*Center horizontally*/
-    align-items: center; /*Center vertically*/
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-.carousel-item.item-sketch img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
+/* --- Metrics Section --- */
+.metric-item {
+    padding: 2rem 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    object-fit: contain; /* Prevent image distortion */
+    background-color: var(--light-background);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1rem;
+    height: 100%;
+}
+.metric-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+/* ADDED: Distinct icon colors */
+#metrics .column:nth-child(1) .metric-item .icon { color: var(--accent-color); } /* AAO */
+#metrics .column:nth-child(2) .metric-item .icon { color: var(--primary-color); } /* FRS */
+#metrics .column:nth-child(3) .metric-item .icon { color: var(--tertiary-color); } /* MATS */
+
+.metric-item .icon.is-large {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    /* Color applied individually above */
+}
+.metric-item .title.is-5 {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+.metric-item .metric-subtitle {
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+.metric-item .metric-description {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    line-height: 1.5;
+}
+
+
+/* --- Examples Section --- */
+#examples-carousel .item-example {
+    /* Styles apply to the slide container */
+}
+.example-slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+.example-meta {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+}
+.example-meta p {
+    margin-bottom: 0.25rem;
+}
+.example-visual {
+    margin-bottom: 1rem;
+    max-width: 80%;
+}
+.example-visual img {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 100%;
+    height: auto;
+}
+.example-comms {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    margin-bottom: 1rem;
+}
+.example-comms p {
+     margin-bottom: 0.25rem;
+}
+#examples-carousel .caption {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-style: italic;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Style Bulma Carousel Navigation */
+.carousel .carousel-nav-left,
+.carousel .carousel-nav-right {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+}
+.carousel .carousel-nav-left:hover,
+.carousel .carousel-nav-right:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.carousel .slider-pagination .slider-page {
+    background: rgba(0, 0, 0, 0.3);
+}
+.carousel .slider-pagination .slider-page.is-active {
+    background: rgba(0, 0, 0, 0.7);
 }
 
 /* --- Author Cards --- */
 .author-card {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    padding: 2rem 1.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
+    height: 100%;
 }
-
+.author-card:hover {
+     transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
 .author-headshot {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Circular headshot */
-    margin-bottom: 1rem;
-    border: 3px solid var(--accent-color); /* Optional: Border around headshot */
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+    border: 3px solid var(--accent-color);
+    object-fit: cover;
 }
 .author-card .title.is-4{
-    font-family: 'Roboto', sans-serif; /*Use normal font here*/
-    font-weight:500;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
 }
-
 .author-card .affiliation {
-    color: #6c757d;
+    color: var(--text-color-light);
     font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
-
 .author-links .icon-link {
     margin: 0 0.5rem;
-    font-size: 1.3rem; /* Slightly smaller author link icons */
-    color: #555; /* Muted author link icon color */
-    opacity: 0.8;
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+}
+.author-links .icon-link:hover {
+    color: var(--accent-color);
 }
 
 
-/* --- Sketchy Divider --- */
-.divider {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    border: none;
-    background-color: transparent;
+/* --- BibTeX --- */
+/* ADDED: Positioning context for button */
+.bibtex-container {
+   position: relative;
 }
 
-
-/*---Change font for agent headings---*/
-.section .title.is-4 {
-    font-family: 'Permanent Marker', cursive;
-    font-weight: 600;
+#BibTeX pre {
+    background-color: #e9ecef;
+    padding: 1.5rem;
+    /* ADDED: Add padding to prevent overlap with button */
+    padding-right: 6rem; /* Adjust as needed based on button size */
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
-/* --- Agent section specific styles --- */
-#agents .column.is-half {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
+/* ADDED: Positioning styles for button */
+#BibTeX .copy-bibtex-button {
+   position: absolute;
+   top: 0.75rem; /* Adjust spacing */
+   right: 0.75rem; /* Adjust spacing */
+   margin: 0; /* Override potential centering */
+   background-color: var(--primary-color);
+   border-color: var(--primary-color);
+   color: var(--light-background);
+   font-weight: 500;
+}
+#BibTeX .copy-bibtex-button:hover {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+    transform: translateY(-1px);
 }
 
-#agents .column.is-half > * {
-    margin-bottom: 1.5rem; /* Add spacing between elements */
-}
-#agents .column.is-half:last-child{
-    margin-bottom: 0;
-}
-
-#agents .column.is-half ul {
-    list-style: disc; /* Use standard bullets */
-    margin-left: 1.5em; /* Indent the list */
-    padding-left: 0;
-}
-#agents .column.is-half p{
-     text-align: justify;
-}
 
 /* --- Footer --- */
 .footer {
     background-color: var(--dark-background);
-    padding: 2rem 1.5rem;
+    padding: 3rem 1.5rem;
     text-align: center;
-}
-
-/* --- BibTeX --- */
-#BibTeX pre {
-    background-color: #e9ecef; /* Light gray background for BibTeX */
-    padding: 1rem;
-    border-radius: 4px;
-    overflow-x: auto;
+    color: var(--text-color-light);
     font-size: 0.9rem;
-    line-height: 1.4;
+}
+/* ADDED: Footer Logos styling */
+.footer-logos {
+    margin-bottom: 2rem; /* Space between logos and text */
+}
+.footer-logos .column {
+    padding: 0 1rem; /* Spacing between logos */
+}
+.footer-logos img {
+    max-height: 45px; /* Control logo height */
+    opacity: 0.75; /* Make logos slightly subtle */
+    transition: opacity 0.3s ease-in-out;
+}
+.footer-logos img:hover {
+    opacity: 1.0; /* Full opacity on hover */
+}
+.footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+.footer a:hover {
+    color: var(--accent-color);
+}
+
+/* Existing .footer p styles */
+.footer p {
+   margin-bottom: 0.5rem; /* Adjust spacing between text lines */
 }
 
 
-/* --- Placeholder for Game Example Gallery --- */
-/* You'll need to add specific styles for your gallery layout here,
-   depending on how you choose to implement it (grid, flexbox, etc.) */
-.game-example-gallery {
-  /* Add styles for your gallery layout */
+/* --- Responsiveness --- */
+@media screen and (max-width: 1023px) {
+    #agents .columns .column.is-half {
+        width: 100%;
+    }
+    #agents .results-carousel {
+        margin-top: 1.5rem;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+     .dataset-stats .column.is-4,
+     #metrics .column.is-4 {
+        margin-left: auto;
+        margin-right: auto;
+     }
 }
 
-
-/* --- Responsiveness (Example) --- */
 @media screen and (max-width: 768px) {
     .publication-title {
-        font-size: 2.5rem; /* Smaller title on mobile */
+        font-size: 2.5rem;
     }
-    .key-contributions .column {
-        padding: 1rem; /* Less padding on mobile */
+    .section .title.is-3 {
+        font-size: 2rem;
+    }
+     .section .title.is-4 {
+        font-size: 1.5rem;
+    }
+    .key-contributions .column,
+    .stat-card,
+    .metric-item {
+        padding: 1.25rem;
+    }
+    /* Make cards slightly wider on mobile */
+    .dataset-stats .column.is-4,
+    #metrics .column.is-4 {
+        width: 90%; /* MODIFIED: Slightly wider */
+        max-width: 400px;
+    }
+    /* Stack contribution cards earlier if needed */
+    /* .key-contributions .column { width: 80%; margin: 0 auto 1rem auto; } */
+
+    .author-card .column.is-one-third {
+        width: 80%;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #examples-carousel .example-visual {
+        max-width: 95%;
+    }
+    #examples-carousel .caption {
+        max-width: 95%;
+    }
+
+    /* Adjust BibTeX button positioning/padding on mobile if needed */
+    #BibTeX pre {
+        padding-right: 1.5rem; /* Reduce padding */
+        padding-top: 3rem; /* Add padding top for button space */
+    }
+    #BibTeX .copy-bibtex-button {
+        top: 0.5rem;
+        right: 0.5rem;
+        /* Optionally make it full width or place differently */
+        /* position: static; width: 100%; margin-top: 0.5rem; */
     }
 }
