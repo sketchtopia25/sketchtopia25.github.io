@@ -20,7 +20,7 @@
 /* --- General Styles --- */
 body {
     font-family: var(--body-font);
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-background);
     /* Optional: subtle background pattern (if you have one) */
@@ -99,15 +99,12 @@ body {
 
 
 /* --- Section Titles --- */
-/* Removed the slight rotation */
 .section .title.is-3 {
     font-family: var(--heading-font);
     font-size: 2.25rem; /* Larger section titles */
     font-weight: 600;
     color: var(--text-color);
     margin-bottom: 2rem; /* Added margin below section titles */
-    /*display: inline-block;  Needed for the transform to work */
-    /* transform: rotate(-1deg); REMOVED */
 }
 
 /* --- Section Body Content --- */
@@ -172,10 +169,23 @@ section#resources {
     flex-direction: column;
     align-items: center; /* Center content horizontally */
 }
+
 .stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  }
+  
+  .stat-card .icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+      color: var(--accent-color);
+      transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition */
+  }
+  
+  .stat-card:hover .icon {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+    color: var(--primary-color);
+  }
 
 .stat-card .stat-value{
      display: flex;
@@ -186,12 +196,6 @@ section#resources {
 
 }
 
-.stat-card .icon {
-    /* Style the icon within the stat card */
-    font-size: 1.5rem; /* Adjust icon size as needed */
-    margin-right: 0.5rem; /* Spacing between icon and number */
-    color: var(--accent-color); /* Example: Use accent color */
-}
 .stat-card .stat-value {
     font-size: 2.5rem; /* Larger font size for the number */
     font-weight: bold;
