@@ -208,6 +208,25 @@ section.hero {
     padding-top: 0; /* Remove top padding if directly below hero */
     padding-bottom: 1rem;
 }
+#hero-carousel {
+    width: 100%;
+    display: block;
+    clear: both;
+    position: relative;
+}
+#hero-carousel .slider{
+    width: 100%;
+    min-height: 250px; /* Adjust height as needed */
+    height: auto;
+    overflow: hidden;
+}
+/* #hero-carousel .slider-item{
+    opacity: 0.4;
+    transition: opacity 0.20s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+} */
 #hero-carousel .item {
    display: none;
    width: 100%;
