@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pagination: true,
         loop: true,
         infinite: true,
-        autoplay: false,
+        autoplay: true,
+        autoplaySpeed: 3000, // 3 seconds
     });
   }
 
@@ -62,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pagination: true,
         loop: true,
         infinite: true,
-        autoplay: false,
+        autoplay: true,
+        autoplaySpeed: 3000, // 3 seconds
     });
   }
 
