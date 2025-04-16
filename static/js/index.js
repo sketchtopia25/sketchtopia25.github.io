@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pagination: true, // Enable dots
         loop: true,
         infinite: true,
-        autoplay: false, // Keep manual navigation
+        autoplay: true,
+        autoplaySpeed: 5000, // 5 seconds
+        autoplayHoverPause: true, // Pause on hover
         // autoplaySpeed: 5000, // Only relevant if autoplay: true
     });
   }
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         infinite: true,
         autoplay: true,
         autoplaySpeed: 3000, // 3 seconds
+        autoplayHoverPause: true, // Pause on hover
     });
   }
 
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         infinite: true,
         autoplay: true,
         autoplaySpeed: 3000, // 3 seconds
+        autoplayHoverPause: true, // Pause on hover
     });
   }
 
