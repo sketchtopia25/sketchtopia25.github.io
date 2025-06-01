@@ -94,10 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (copyBtn && bibtexCodeElement) {
     copyBtn.addEventListener('click', () => {
       const bibtexText = bibtexCodeElement.textContent;
+      const originalText = copyBtn.innerHTML; // Store original content BEFORE attempting to copy
+
       navigator.clipboard.writeText(bibtexText)
         .then(() => {
           // Success feedback
-          const originalText = copyBtn.innerHTML; // Store original content
           copyBtn.innerHTML = `
               <span class="icon is-small"><i class="fas fa-check"></i></span>
               <span>Copied!</span>`;
@@ -110,9 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(err => {
           console.error('Failed to copy BibTeX:', err);
-          // Optional: Provide fallback or alert user
-          // copyBtn.textContent = 'Copy Failed'; // Simple error feedback
-          alert('Could not copy BibTeX. Please copy manually.');
+          // Error feedback - update button content instead of alert
+          copyBtn.innerHTML = `
+              <span class="icon is-small"><i class="fas fa-times-circle"></i></span>
+              <span>Copy Failed!</span>`;
+          copyBtn.disabled = true; // Briefly disable button
+
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText; // Restore original content
+            copyBtn.disabled = false; // Re-enable button
+          }, 2500); // Slightly longer or same duration for error message
         });
     });
   }
