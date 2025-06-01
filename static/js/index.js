@@ -163,4 +163,38 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => observer.observe(section));
   }
 
+  // --- Dark Mode Toggle ---
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  const root = document.documentElement;
+  // Check localStorage for theme
+  if (localStorage.getItem('theme') === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+    document.body.setAttribute('data-theme', 'dark');
+    if (darkModeToggle) {
+      darkModeToggle.querySelector('span.icon i').classList.remove('fa-moon');
+      darkModeToggle.querySelector('span.icon i').classList.add('fa-sun');
+      darkModeToggle.querySelector('span:last-child').textContent = 'Light Mode';
+    }
+  }
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        root.removeAttribute('data-theme');
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        darkModeToggle.querySelector('span.icon i').classList.remove('fa-sun');
+        darkModeToggle.querySelector('span.icon i').classList.add('fa-moon');
+        darkModeToggle.querySelector('span:last-child').textContent = 'Dark Mode';
+      } else {
+        root.setAttribute('data-theme', 'dark');
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        darkModeToggle.querySelector('span.icon i').classList.remove('fa-moon');
+        darkModeToggle.querySelector('span.icon i').classList.add('fa-sun');
+        darkModeToggle.querySelector('span:last-child').textContent = 'Light Mode';
+      }
+    });
+  }
+
 }); // End DOMContentLoaded

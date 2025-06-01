@@ -23,6 +23,27 @@
     --card-shadow-hover: 0 5px 12px rgba(0,0,0,0.1); /* UPDATED Deeper hover */
 }
 
+/* --- DARK MODE THEME --- */
+[data-theme="dark"] {
+    --primary-color: #4dd0e1;
+    --secondary-color: #263238;
+    --tertiary-color: #b39ddb;
+    --text-color: #e0e0e0;
+    --text-color-light: #b0b0b0;
+    --light-background: #181a1b;
+    --dark-background: #23272a;
+    --accent-color: #ffd54f;
+    --link-color: #80cbc4;
+    --border-color: #333a40;
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.25);
+    --card-shadow-hover: 0 5px 12px rgba(0,0,0,0.35);
+}
+
+body[data-theme="dark"] {
+    background-color: var(--light-background);
+    color: var(--text-color);
+}
+
 /* --- General & Global Styles --- */
 body {
     font-family: var(--body-font);
@@ -91,6 +112,11 @@ section.key-contributions {
 
 /* --- Navbar --- */
 .navbar {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--light-background);
+}
+[data-theme="dark"] .navbar {
+    background: var(--dark-background) !important;
     border-bottom: 1px solid var(--border-color);
 }
 .navbar-item.is-active {
@@ -680,7 +706,7 @@ section.hero {
 }
 #BibTeX .copy-bibtex-button:hover {
     background-color: var(--link-color); /* Use darker link color on hover */
-    border-color: var(--link-color);
+    border-color: var (--link-color);
     transform: translateY(-1px);
 }
 
