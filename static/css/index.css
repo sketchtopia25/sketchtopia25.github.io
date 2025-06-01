@@ -15,8 +15,8 @@
     --light-background: #FFFFFF;  /* White */
     --dark-background: #EFF2F5;   /* Cool Light Gray */
     --accent-color: #D4A017;      /* Muted Gold/Ochre */
-    --heading-font: 'Inter', sans-serif; /* UPDATED Heading Font */
-    --body-font: 'Roboto', sans-serif; /* Body font remains */
+    --heading-font: 'Montserrat', sans-serif; /* Modern Heading Font */
+    --body-font: 'Open Sans', sans-serif; /* Modern Body font */
     --link-color: #005670;     /* Darker Teal */
     --border-color: #E1E5E8;   /* Light Border Color (adjust based on dark-bg) */
     --card-shadow: 0 2px 5px rgba(0,0,0,0.06); /* UPDATED Softer shadow */
