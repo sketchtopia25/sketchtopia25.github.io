@@ -841,3 +841,85 @@ section.hero {
   box-shadow: 0 6px 18px rgba(0,0,0,0.13);
   text-decoration: none;
 }
+
+/* Carousel Containment Fixes */
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .carousel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel .carousel-item.is-active {
+    position: relative;
+    opacity: 1;
+}
+
+/* Ensure images within carousel items are properly contained */
+.carousel .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Specific styling for agent carousels */
+#drawbot-carousel,
+#guessbot-carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+#drawbot-carousel .carousel-item,
+#guessbot-carousel .carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#drawbot-carousel .carousel-item.is-active,
+#guessbot-carousel .carousel-item.is-active {
+    position: relative;
+    opacity: 1;
+}
+
+#drawbot-carousel .carousel-item img,
+#guessbot-carousel .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Restore main carousel styling */
+#hero-carousel {
+    overflow: visible;
+}
+
+#hero-carousel .carousel-item {
+    position: relative;
+    opacity: 1;
+}
+
+#hero-carousel .carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

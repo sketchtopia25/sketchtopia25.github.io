@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         autoplay: true,
         autoplaySpeed: 3000, // 3 seconds
         autoplayHoverPause: true, // Pause on hover
+        effect: 'translate', // Use translate effect instead of fade
+        duration: 300 // Shorter transition duration
     });
   }
 
@@ -69,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         autoplay: true,
         autoplaySpeed: 3000, // 3 seconds
         autoplayHoverPause: true, // Pause on hover
+        effect: 'translate', // Use translate effect instead of fade
+        duration: 300 // Shorter transition duration
     });
   }
 
