@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', 'light');
         darkModeToggle.querySelector('span.icon i').classList.remove('fa-sun');
         darkModeToggle.querySelector('span.icon i').classList.add('fa-moon');
-        darkModeToggle.querySelector('span:last-child').textContent = 'Dark Mode';
+        darkModeToggle.querySelector('span:last-child').textContent = 'Light Mode';
       } else {
         root.setAttribute('data-theme', 'dark');
         document.body.setAttribute('data-theme', 'dark');
