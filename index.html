@@ -209,18 +209,24 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-half has-text-centered">
-        <h3 class="title is-4">Audio Overview</h3>
+        <div class="audio-overview-header">
+          <span class="icon is-large">
+            <i class="fas fa-headphones fa-2x"></i>
+          </span>
+          <h3 class="title is-4">Audio Overview</h3>
+          <p class="subtitle is-6">Listen to a brief overview of our research</p>
+        </div>
         <div class="audio-player-container">
           <audio controls>
             <source src="./static/audio/paper_overview.wav" type="audio/wav">
             Your browser does not support the audio element.
           </audio>
-          <p style="margin-top:0.5em;">
-            <a href="./static/audio/paper_overview.wav" download class="button is-small is-rounded">
+          <div class="audio-actions">
+            <a href="./static/audio/paper_overview.wav" download class="button is-primary is-rounded">
               <span class="icon"><i class="fas fa-download"></i></span>
-              <span>Download audio overview</span>
+              <span>Download Audio</span>
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </div>
