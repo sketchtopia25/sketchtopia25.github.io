@@ -923,3 +923,43 @@ section.hero {
     height: auto;
     display: block;
 }
+
+/* Audio Overview Section Styling */
+#audio-overview {
+    background: var(--light-background);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.audio-player-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.audio-player-container audio {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.audio-player-container .button {
+    background: var(--primary-color);
+    color: var(--light-background);
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.audio-player-container .button:hover {
+    background: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .audio-player-container {
+    background: var(--dark-background);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
