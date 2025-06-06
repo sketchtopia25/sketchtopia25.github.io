@@ -50,6 +50,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-background);
+    padding-top: 3.25rem;  /* This matches the navbar height */
 }
 
 /* Smooth transitions for hover effects */
@@ -112,13 +113,24 @@ section.key-contributions {
 
 /* --- Navbar --- */
 .navbar {
-    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     background: var(--light-background);
-}
-[data-theme="dark"] .navbar {
-    background: var(--dark-background) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
     border-bottom: 1px solid var(--border-color);
 }
+
+/* Dark mode adjustments */
+[data-theme="dark"] .navbar {
+    background: var(--dark-background);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border-color);
+}
+
 .navbar-item.is-active {
     font-weight: bold;
     color: var(--primary-color);
@@ -942,7 +954,7 @@ section.hero {
 }
 
 .audio-overview-header .title {
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
     color: var(--text-color);
 }
 
