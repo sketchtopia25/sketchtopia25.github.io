@@ -79,15 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
    // Examples Carousel
   const examplesCarouselElement = document.querySelector('#examples-carousel');
   if (examplesCarouselElement) {
-    bulmaCarousel.attach('#examples-carousel', {
+    // Attach carousel and keep a reference to the instance
+    const carousels = bulmaCarousel.attach('#examples-carousel', {
         slidesToScroll: 1,
         slidesToShow: 1,
         navigation: true,
         pagination: true,
         loop: true, // Loop through examples
         infinite: true,
-        autoplay: false,
+        autoplay: true, // Enable autoplay so we can use next()
+        autoplaySpeed: 999999, // Effectively disables timer-based auto-advance
     });
+    // Get the carousel instance (bulmaCarousel.attach returns an array)
+    const examplesCarousel = carousels && carousels[0];
+    // Add event listeners to videos to advance carousel on end
+    if (examplesCarousel) {
+      const videos = examplesCarouselElement.querySelectorAll('video');
+      videos.forEach(video => {
+        video.addEventListener('ended', () => {
+          examplesCarousel.next();
+        });
+      });
+    }
   }
 
   // ActionDecider Carousel
