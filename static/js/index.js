@@ -90,6 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ActionDecider Carousel
+  const actiondeciderCarouselElement = document.querySelector('#actiondecider-carousel');
+  if (actiondeciderCarouselElement) {
+    bulmaCarousel.attach('#actiondecider-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        navigation: true,
+        pagination: true,
+        loop: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 3000, // 3 seconds
+        autoplayHoverPause: true, // Pause on hover
+        effect: 'translate', // Use translate effect instead of fade
+        duration: 300 // Shorter transition duration
+    });
+  }
+
   // --- BibTeX Copy Button ---
   const copyBtn = document.querySelector('.copy-bibtex-button');
   // Select the <code> element INSIDE the <pre>
