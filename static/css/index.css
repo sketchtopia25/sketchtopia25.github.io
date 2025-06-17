@@ -849,11 +849,9 @@ section.hero {
 .audio-overview-quicklink .audio-overview-btn:focus {
   background: var(--accent-color);
   color: var(--light-background);
-  transform: translateY(-2px) scale(1.07);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.13);
   text-decoration: none;
-  outline: none;
-  border: none;
 }
 
 /* Carousel Containment Fixes */
